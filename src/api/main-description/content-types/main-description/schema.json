@@ -1,0 +1,26 @@
+{
+  "kind": "singleType",
+  "collectionName": "main_descriptions",
+  "info": {
+    "singularName": "main-description",
+    "pluralName": "main-descriptions",
+    "displayName": "Описание на главной странице"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "description": {
+      "type": "text",
+      "maxLength": 500
+    },
+    "icons": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}
