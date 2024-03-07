@@ -1,31 +1,34 @@
 {
-  "kind": "collectionType",
+  "kind": "singleType",
   "collectionName": "main_categories",
   "info": {
     "singularName": "main-category",
     "pluralName": "main-categories",
-    "displayName": "Категории на главной странице"
+    "displayName": "Категории на Главной странице",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "title": {
-      "type": "string"
+    "universiade": {
+      "type": "component",
+      "repeatable": false,
+      "component": "main.main-category",
+      "required": true
     },
-    "description": {
-      "type": "string"
+    "sports": {
+      "type": "component",
+      "repeatable": false,
+      "component": "main.main-category",
+      "required": true
     },
-    "background": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
-      "type": "media",
-      "multiple": false
+    "gto": {
+      "type": "component",
+      "repeatable": false,
+      "component": "main.main-category",
+      "required": true
     }
   }
 }
