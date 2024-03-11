@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sportsmans",
+  "info": {
+    "singularName": "sportsman",
+    "pluralName": "sportsmans",
+    "displayName": "Спортсмены",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "fio": {
+      "type": "string",
+      "required": true,
+      "maxLength": 255
+    },
+    "rank": {
+      "type": "text",
+      "maxLength": 400
+    },
+    "additional_info": {
+      "type": "richtext",
+      "maxLength": 500
+    },
+    "achievements": {
+      "type": "component",
+      "repeatable": false,
+      "component": "field.achievements"
+    },
+    "sport": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::sport.sport",
+      "inversedBy": "sportsmens"
+    },
+    "variety_sport": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "universiade2019": {
+      "type": "enumeration",
+      "enum": [
+        "Победители и призеры",
+        "Участники"
+      ]
+    }
+  }
+}

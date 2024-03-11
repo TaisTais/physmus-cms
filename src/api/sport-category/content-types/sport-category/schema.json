@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sport_categories",
+  "info": {
+    "singularName": "sport-category",
+    "pluralName": "sport-categories",
+    "displayName": "Категории Видов Спорта"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "maxLength": 255,
+      "required": true
+    },
+    "sport": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::sport.sport",
+      "mappedBy": "category"
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sports",
+  "info": {
+    "singularName": "sport",
+    "pluralName": "sports",
+    "displayName": "Виды Спорта",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "maxLength": 255,
+      "required": true
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "sportsmens": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::sportsman.sportsman",
+      "mappedBy": "sport"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::sport-category.sport-category",
+      "inversedBy": "sport"
+    },
+    "universiade2019": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

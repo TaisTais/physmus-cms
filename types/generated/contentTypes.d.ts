@@ -362,73 +362,6 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiMainCategoryMainCategory extends Schema.SingleType {
-  collectionName: 'main_categories';
-  info: {
-    singularName: 'main-category';
-    pluralName: 'main-categories';
-    displayName: '\u041A\u0430\u0442\u0435\u0433\u043E\u0440\u0438\u0438 \u043D\u0430 \u0413\u043B\u0430\u0432\u043D\u043E\u0439 \u0441\u0442\u0440\u0430\u043D\u0438\u0446\u0435';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    universiade: Attribute.Component<'main.main-category'> & Attribute.Required;
-    sports: Attribute.Component<'main.main-category'> & Attribute.Required;
-    gto: Attribute.Component<'main.main-category'> & Attribute.Required;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::main-category.main-category',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::main-category.main-category',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiMainDescriptionMainDescription extends Schema.SingleType {
-  collectionName: 'main_descriptions';
-  info: {
-    singularName: 'main-description';
-    pluralName: 'main-descriptions';
-    displayName: '\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435 \u043D\u0430 \u0433\u043B\u0430\u0432\u043D\u043E\u0439 \u0441\u0442\u0440\u0430\u043D\u0438\u0446\u0435';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    description: Attribute.Text &
-      Attribute.SetMinMaxLength<{
-        maxLength: 500;
-      }>;
-    icons: Attribute.Media;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::main-description.main-description',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::main-description.main-description',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -855,6 +788,219 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiMainCategoryMainCategory extends Schema.SingleType {
+  collectionName: 'main_categories';
+  info: {
+    singularName: 'main-category';
+    pluralName: 'main-categories';
+    displayName: '\u041A\u0430\u0442\u0435\u0433\u043E\u0440\u0438\u0438 \u043D\u0430 \u0413\u043B\u0430\u0432\u043D\u043E\u0439 \u0441\u0442\u0440\u0430\u043D\u0438\u0446\u0435';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    universiade: Attribute.Component<'main.main-category'> & Attribute.Required;
+    sports: Attribute.Component<'main.main-category'> & Attribute.Required;
+    gto: Attribute.Component<'main.main-category'> & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::main-category.main-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::main-category.main-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiMainDescriptionMainDescription extends Schema.SingleType {
+  collectionName: 'main_descriptions';
+  info: {
+    singularName: 'main-description';
+    pluralName: 'main-descriptions';
+    displayName: '\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435 \u043D\u0430 \u0433\u043B\u0430\u0432\u043D\u043E\u0439 \u0441\u0442\u0440\u0430\u043D\u0438\u0446\u0435';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    description: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 500;
+      }>;
+    icons: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::main-description.main-description',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::main-description.main-description',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSportSport extends Schema.CollectionType {
+  collectionName: 'sports';
+  info: {
+    singularName: 'sport';
+    pluralName: 'sports';
+    displayName: '\u0412\u0438\u0434\u044B \u0421\u043F\u043E\u0440\u0442\u0430';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    images: Attribute.Media;
+    description: Attribute.RichText;
+    sportsmens: Attribute.Relation<
+      'api::sport.sport',
+      'oneToMany',
+      'api::sportsman.sportsman'
+    >;
+    category: Attribute.Relation<
+      'api::sport.sport',
+      'manyToOne',
+      'api::sport-category.sport-category'
+    >;
+    universiade2019: Attribute.Boolean & Attribute.DefaultTo<false>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::sport.sport',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::sport.sport',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSportCategorySportCategory extends Schema.CollectionType {
+  collectionName: 'sport_categories';
+  info: {
+    singularName: 'sport-category';
+    pluralName: 'sport-categories';
+    displayName: '\u041A\u0430\u0442\u0435\u0433\u043E\u0440\u0438\u0438 \u0412\u0438\u0434\u043E\u0432 \u0421\u043F\u043E\u0440\u0442\u0430';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    sport: Attribute.Relation<
+      'api::sport-category.sport-category',
+      'oneToMany',
+      'api::sport.sport'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::sport-category.sport-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::sport-category.sport-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSportsmanSportsman extends Schema.CollectionType {
+  collectionName: 'sportsmans';
+  info: {
+    singularName: 'sportsman';
+    pluralName: 'sportsmans';
+    displayName: '\u0421\u043F\u043E\u0440\u0442\u0441\u043C\u0435\u043D\u044B';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    fio: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    rank: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 400;
+      }>;
+    additional_info: Attribute.RichText &
+      Attribute.SetMinMaxLength<{
+        maxLength: 500;
+      }>;
+    achievements: Attribute.Component<'field.achievements'>;
+    sport: Attribute.Relation<
+      'api::sportsman.sportsman',
+      'manyToOne',
+      'api::sport.sport'
+    >;
+    variety_sport: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    universiade2019: Attribute.Enumeration<
+      [
+        '\u041F\u043E\u0431\u0435\u0434\u0438\u0442\u0435\u043B\u0438 \u0438 \u043F\u0440\u0438\u0437\u0435\u0440\u044B',
+        '\u0423\u0447\u0430\u0441\u0442\u043D\u0438\u043A\u0438'
+      ]
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::sportsman.sportsman',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::sportsman.sportsman',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -865,8 +1011,6 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::main-category.main-category': ApiMainCategoryMainCategory;
-      'api::main-description.main-description': ApiMainDescriptionMainDescription;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
@@ -875,6 +1019,11 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::main-category.main-category': ApiMainCategoryMainCategory;
+      'api::main-description.main-description': ApiMainDescriptionMainDescription;
+      'api::sport.sport': ApiSportSport;
+      'api::sport-category.sport-category': ApiSportCategorySportCategory;
+      'api::sportsman.sportsman': ApiSportsmanSportsman;
     }
   }
 }

@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_field_achievements",
+  "info": {
+    "displayName": "Achievements",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "year": {
+      "type": "integer",
+      "required": true,
+      "max": 3000,
+      "min": 1800
+    },
+    "description": {
+      "type": "text",
+      "required": true,
+      "maxLength": 700
+    }
+  }
+}
