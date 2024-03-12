@@ -2,20 +2,19 @@
   "collectionName": "components_field_achievements",
   "info": {
     "displayName": "Achievements",
-    "icon": "bulletList"
+    "icon": "bulletList",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "year": {
-      "type": "integer",
-      "required": true,
-      "max": 3000,
-      "min": 1800
-    },
     "description": {
-      "type": "text",
+      "type": "string",
       "required": true,
-      "maxLength": 700
+      "maxLength": 255
+    },
+    "year": {
+      "type": "string",
+      "maxLength": 255
     }
   }
 }

@@ -1,0 +1,19 @@
+{
+  "kind": "singleType",
+  "collectionName": "about_universiades",
+  "info": {
+    "singularName": "about-universiade",
+    "pluralName": "about-universiades",
+    "displayName": "Об универсиаде"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "text": {
+      "type": "richtext",
+      "required": true
+    }
+  }
+}

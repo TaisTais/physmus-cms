@@ -27,7 +27,7 @@
     },
     "achievements": {
       "type": "component",
-      "repeatable": false,
+      "repeatable": true,
       "component": "field.achievements"
     },
     "sport": {
@@ -46,6 +46,13 @@
         "Победители и призеры",
         "Участники"
       ]
+    },
+    "images": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true
     }
   }
 }

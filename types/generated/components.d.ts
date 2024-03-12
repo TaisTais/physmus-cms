@@ -5,21 +5,17 @@ export interface FieldAchievements extends Schema.Component {
   info: {
     displayName: 'Achievements';
     icon: 'bulletList';
+    description: '';
   };
   attributes: {
-    year: Attribute.Integer &
-      Attribute.Required &
-      Attribute.SetMinMax<
-        {
-          min: 1800;
-          max: 3000;
-        },
-        number
-      >;
-    description: Attribute.Text &
+    description: Attribute.String &
       Attribute.Required &
       Attribute.SetMinMaxLength<{
-        maxLength: 700;
+        maxLength: 255;
+      }>;
+    year: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
       }>;
   };
 }

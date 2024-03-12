@@ -788,6 +788,66 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiAboutUniversiadeAboutUniversiade extends Schema.SingleType {
+  collectionName: 'about_universiades';
+  info: {
+    singularName: 'about-universiade';
+    pluralName: 'about-universiades';
+    displayName: '\u041E\u0431 \u0443\u043D\u0438\u0432\u0435\u0440\u0441\u0438\u0430\u0434\u0435';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    text: Attribute.RichText & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::about-universiade.about-universiade',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::about-universiade.about-universiade',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiFactsRecordsFactsRecords extends Schema.SingleType {
+  collectionName: 'facts_records_many';
+  info: {
+    singularName: 'facts-records';
+    pluralName: 'facts-records-many';
+    displayName: '\u0424\u0430\u043A\u0442\u044B \u0438 \u0440\u0435\u043A\u043E\u0440\u0434\u044B (\u0423\u043D\u0438\u0432\u0435\u0440\u0441\u0438\u0430\u0434\u0430)';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    text: Attribute.RichText & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::facts-records.facts-records',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::facts-records.facts-records',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiMainCategoryMainCategory extends Schema.SingleType {
   collectionName: 'main_categories';
   info: {
@@ -967,7 +1027,7 @@ export interface ApiSportsmanSportsman extends Schema.CollectionType {
       Attribute.SetMinMaxLength<{
         maxLength: 500;
       }>;
-    achievements: Attribute.Component<'field.achievements'>;
+    achievements: Attribute.Component<'field.achievements', true>;
     sport: Attribute.Relation<
       'api::sportsman.sportsman',
       'manyToOne',
@@ -983,6 +1043,7 @@ export interface ApiSportsmanSportsman extends Schema.CollectionType {
         '\u0423\u0447\u0430\u0441\u0442\u043D\u0438\u043A\u0438'
       ]
     >;
+    images: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1019,6 +1080,8 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::about-universiade.about-universiade': ApiAboutUniversiadeAboutUniversiade;
+      'api::facts-records.facts-records': ApiFactsRecordsFactsRecords;
       'api::main-category.main-category': ApiMainCategoryMainCategory;
       'api::main-description.main-description': ApiMainDescriptionMainDescription;
       'api::sport.sport': ApiSportSport;
