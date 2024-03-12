@@ -27,7 +27,7 @@ services:
     ports:
       - '1337:1337'
     networks:
-      - physmus-cms
+      - physmus
     depends_on:
       - physmus-cmsDB
       
@@ -48,7 +48,7 @@ services:
     ports:
       - '5432:5432'
     networks:
-      - physmus-cms
+      - physmus
       
   physmus-cmsAdminer:
     container_name: physmus-cmsAdminer
@@ -59,7 +59,7 @@ services:
     environment:
       - ADMINER_DEFAULT_SERVER=physmus-cmsDB
     networks:
-      - physmus-cms
+      - physmus
     depends_on:
       - physmus-cmsDB
 
@@ -67,6 +67,6 @@ volumes:
   physmus-cms-data:
 
 networks:
-  physmus-cms:
-    name: Physmus-cms
-    driver: bridge
+  physmus:
+    name: physmus
+    external: true
