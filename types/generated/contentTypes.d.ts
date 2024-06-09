@@ -896,7 +896,7 @@ export interface ApiMainDescriptionMainDescription extends Schema.SingleType {
       Attribute.SetMinMaxLength<{
         maxLength: 500;
       }>;
-    icons: Attribute.Media;
+    icons: Attribute.Media<'images', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -932,7 +932,7 @@ export interface ApiSportSport extends Schema.CollectionType {
       Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
-    images: Attribute.Media;
+    images: Attribute.Media<'images', true>;
     description: Attribute.RichText;
     sportsmens: Attribute.Relation<
       'api::sport.sport',
@@ -1043,7 +1043,7 @@ export interface ApiSportsmanSportsman extends Schema.CollectionType {
         '\u0423\u0447\u0430\u0441\u0442\u043D\u0438\u043A\u0438'
       ]
     >;
-    images: Attribute.Media;
+    images: Attribute.Media<'images', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

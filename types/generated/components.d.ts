@@ -36,7 +36,7 @@ export interface MainMainCategory extends Schema.Component {
       Attribute.SetMinMaxLength<{
         maxLength: 300;
       }>;
-    image: Attribute.Media & Attribute.Required;
+    image: Attribute.Media<'images'> & Attribute.Required;
   };
 }
 

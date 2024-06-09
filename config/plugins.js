@@ -1,6 +1,13 @@
 module.exports = ({ env }) => ({
   "graphql": {
-    enabled: true
+    enabled: true,
+    config: {
+      endpoint: '/graphql',
+      depthLimit: 100,
+      amountLimit: 1000,
+      defaultLimit: 10000,
+      maxLimit: 10000,
+    },
   },
   "apollo-sandbox": {
     // enables the plugin only in development mode
@@ -9,4 +16,7 @@ module.exports = ({ env }) => ({
     enabled: process.env.NODE_ENV === "production" ? false : true,
     // endpoint: "https://tunneled-strapi.com/graphql", // OPTIONAL - endpoint has to be accessible from the browser
   },
+  'drag-drop-content-types': {
+    enabled: true
+  }
 });
