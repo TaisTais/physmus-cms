@@ -1,0 +1,39 @@
+{
+  "kind": "singleType",
+  "collectionName": "main_pages",
+  "info": {
+    "singularName": "main-page",
+    "pluralName": "main-pages",
+    "displayName": "Главная страница",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "description": {
+      "type": "text",
+      "maxLength": 300
+    },
+    "icons": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "categories": {
+      "type": "component",
+      "repeatable": true,
+      "component": "main.main-category",
+      "required": false
+    },
+    "about": {
+      "type": "component",
+      "repeatable": false,
+      "component": "content.text"
+    }
+  }
+}

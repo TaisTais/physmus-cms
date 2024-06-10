@@ -2,7 +2,8 @@
   "collectionName": "components_main_main_categories",
   "info": {
     "displayName": "MainCategory",
-    "icon": "apps"
+    "icon": "apps",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -16,11 +17,16 @@
       "maxLength": 300
     },
     "image": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "link": {
+      "type": "text",
+      "regex": "^\\/?[-a-z0-9_]{1,512}",
       "required": true
     }
   }

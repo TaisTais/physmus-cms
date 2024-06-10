@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_content_texts",
+  "info": {
+    "displayName": "Text",
+    "icon": "medium",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "text": {
+      "type": "richtext",
+      "required": true
+    },
+    "images": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}
