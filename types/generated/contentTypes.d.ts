@@ -1065,7 +1065,7 @@ export interface ApiUniSportUniSport extends Schema.CollectionType {
       'oneToMany',
       'api::sportsman.sportsman'
     >;
-    uni_category: Attribute.Relation<
+    category: Attribute.Relation<
       'api::uni-sport.uni-sport',
       'manyToOne',
       'api::uni-sport-category.uni-sport-category'
@@ -1095,6 +1095,7 @@ export interface ApiUniSportCategoryUniSportCategory
     singularName: 'uni-sport-category';
     pluralName: 'uni-sport-categories';
     displayName: '(\u0423\u043D\u0438\u0432\u0435\u0440\u0441\u0438\u0430\u0434\u0430) \u041A\u0430\u0442\u0435\u0433\u043E\u0440\u0438\u0438 \u0412\u0438\u0434\u043E\u0432 \u0421\u043F\u043E\u0440\u0442\u0430';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1105,11 +1106,13 @@ export interface ApiUniSportCategoryUniSportCategory
       Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
-    uni_sports: Attribute.Relation<
+    sports: Attribute.Relation<
       'api::uni-sport-category.uni-sport-category',
       'oneToMany',
       'api::uni-sport.uni-sport'
     >;
+    color: Attribute.String &
+      Attribute.CustomField<'plugin::color-picker.color'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

@@ -34,11 +34,11 @@
       "target": "api::sportsman.sportsman",
       "mappedBy": "uni_sport"
     },
-    "uni_category": {
+    "category": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::uni-sport-category.uni-sport-category",
-      "inversedBy": "uni_sports"
+      "inversedBy": "sports"
     }
   }
 }
