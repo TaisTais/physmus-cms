@@ -848,45 +848,13 @@ export interface ApiFactsRecordsFactsRecords extends Schema.SingleType {
   };
 }
 
-export interface ApiMainCategoryMainCategory extends Schema.SingleType {
-  collectionName: 'main_categories';
+export interface ApiMainPageMainPage extends Schema.SingleType {
+  collectionName: 'main_pages';
   info: {
-    singularName: 'main-category';
-    pluralName: 'main-categories';
-    displayName: '\u041A\u0430\u0442\u0435\u0433\u043E\u0440\u0438\u0438 \u043D\u0430 \u0413\u043B\u0430\u0432\u043D\u043E\u0439 \u0441\u0442\u0440\u0430\u043D\u0438\u0446\u0435';
+    singularName: 'main-page';
+    pluralName: 'main-pages';
+    displayName: '\u0413\u043B\u0430\u0432\u043D\u0430\u044F \u0441\u0442\u0440\u0430\u043D\u0438\u0446\u0430';
     description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    universiade: Attribute.Component<'main.main-category'> & Attribute.Required;
-    sports: Attribute.Component<'main.main-category'> & Attribute.Required;
-    gto: Attribute.Component<'main.main-category'> & Attribute.Required;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::main-category.main-category',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::main-category.main-category',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiMainDescriptionMainDescription extends Schema.SingleType {
-  collectionName: 'main_descriptions';
-  info: {
-    singularName: 'main-description';
-    pluralName: 'main-descriptions';
-    displayName: '\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435 \u043D\u0430 \u0433\u043B\u0430\u0432\u043D\u043E\u0439 \u0441\u0442\u0440\u0430\u043D\u0438\u0446\u0435';
   };
   options: {
     draftAndPublish: true;
@@ -894,20 +862,22 @@ export interface ApiMainDescriptionMainDescription extends Schema.SingleType {
   attributes: {
     description: Attribute.Text &
       Attribute.SetMinMaxLength<{
-        maxLength: 500;
+        maxLength: 300;
       }>;
     icons: Attribute.Media<'images', true>;
+    categories: Attribute.Component<'main.main-category', true>;
+    about: Attribute.Component<'content.text'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::main-description.main-description',
+      'api::main-page.main-page',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::main-description.main-description',
+      'api::main-page.main-page',
       'oneToOne',
       'admin::user'
     > &
@@ -1082,8 +1052,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::about-universiade.about-universiade': ApiAboutUniversiadeAboutUniversiade;
       'api::facts-records.facts-records': ApiFactsRecordsFactsRecords;
-      'api::main-category.main-category': ApiMainCategoryMainCategory;
-      'api::main-description.main-description': ApiMainDescriptionMainDescription;
+      'api::main-page.main-page': ApiMainPageMainPage;
       'api::sport.sport': ApiSportSport;
       'api::sport-category.sport-category': ApiSportCategorySportCategory;
       'api::sportsman.sportsman': ApiSportsmanSportsman;
