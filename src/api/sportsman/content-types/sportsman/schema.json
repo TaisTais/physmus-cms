@@ -53,6 +53,12 @@
       ],
       "type": "media",
       "multiple": true
+    },
+    "uni_sport": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::uni-sport.uni-sport",
+      "inversedBy": "sportsmens"
     }
   }
 }

@@ -4,7 +4,8 @@
   "info": {
     "singularName": "about-universiade",
     "pluralName": "about-universiades",
-    "displayName": "Об универсиаде"
+    "displayName": "(Универсиада) Об универсиаде",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true

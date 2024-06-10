@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "sports",
+  "collectionName": "uni_sports",
   "info": {
-    "singularName": "sport",
-    "pluralName": "sports",
-    "displayName": "Виды Спорта",
+    "singularName": "uni-sport",
+    "pluralName": "uni-sports",
+    "displayName": "(Универсиада) Виды Спорта",
     "description": ""
   },
   "options": {
@@ -14,8 +14,8 @@
   "attributes": {
     "title": {
       "type": "string",
-      "maxLength": 255,
-      "required": true
+      "required": true,
+      "maxLength": 255
     },
     "images": {
       "type": "media",
@@ -32,12 +32,12 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::sportsman.sportsman",
-      "mappedBy": "sport"
+      "mappedBy": "uni_sport"
     },
     "category": {
       "type": "relation",
       "relation": "manyToOne",
-      "target": "api::sport-category.sport-category",
+      "target": "api::uni-sport-category.uni-sport-category",
       "inversedBy": "sports"
     }
   }

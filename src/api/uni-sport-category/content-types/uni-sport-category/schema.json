@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "sport_categories",
+  "collectionName": "uni_sport_categories",
   "info": {
-    "singularName": "sport-category",
-    "pluralName": "sport-categories",
-    "displayName": "Категории Видов Спорта",
+    "singularName": "uni-sport-category",
+    "pluralName": "uni-sport-categories",
+    "displayName": "(Универсиада) Категории Видов Спорта",
     "description": ""
   },
   "options": {
@@ -14,19 +14,18 @@
   "attributes": {
     "title": {
       "type": "string",
-      "maxLength": 255,
-      "required": true
+      "required": true,
+      "maxLength": 255
     },
     "sports": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::sport.sport",
+      "target": "api::uni-sport.uni-sport",
       "mappedBy": "category"
     },
     "color": {
       "type": "customField",
       "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
-      "required": false,
       "customField": "plugin::color-picker.color"
     }
   }
