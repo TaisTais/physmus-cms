@@ -48,7 +48,7 @@ services:
     ports:
       - '5432:5432'
     networks:
-      - physmus
+      - physmus-net
       
   physmus-cmsAdminer:
     container_name: physmus-cmsAdminer
@@ -67,6 +67,6 @@ volumes:
   physmus-cms-data:
 
 networks:
-  physmus:
-    name: physmus
+  physmus-net:
+    name: physmus-net
     external: true
