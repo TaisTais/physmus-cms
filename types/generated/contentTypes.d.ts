@@ -793,7 +793,8 @@ export interface ApiAboutUniversiadeAboutUniversiade extends Schema.SingleType {
   info: {
     singularName: 'about-universiade';
     pluralName: 'about-universiades';
-    displayName: '\u041E\u0431 \u0443\u043D\u0438\u0432\u0435\u0440\u0441\u0438\u0430\u0434\u0435';
+    displayName: '(\u0423\u043D\u0438\u0432\u0435\u0440\u0441\u0438\u0430\u0434\u0430) \u041E\u0431 \u0443\u043D\u0438\u0432\u0435\u0440\u0441\u0438\u0430\u0434\u0435';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -823,7 +824,8 @@ export interface ApiFactsRecordsFactsRecords extends Schema.SingleType {
   info: {
     singularName: 'facts-records';
     pluralName: 'facts-records-many';
-    displayName: '\u0424\u0430\u043A\u0442\u044B \u0438 \u0440\u0435\u043A\u043E\u0440\u0434\u044B (\u0423\u043D\u0438\u0432\u0435\u0440\u0441\u0438\u0430\u0434\u0430)';
+    displayName: '(\u0423\u043D\u0438\u0432\u0435\u0440\u0441\u0438\u0430\u0434\u0430) \u0424\u0430\u043A\u0442\u044B \u0438 \u0440\u0435\u043A\u043E\u0440\u0434\u044B';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -897,7 +899,7 @@ export interface ApiSportSport extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    name: Attribute.String &
+    title: Attribute.String &
       Attribute.Required &
       Attribute.SetMinMaxLength<{
         maxLength: 255;
@@ -914,7 +916,6 @@ export interface ApiSportSport extends Schema.CollectionType {
       'manyToOne',
       'api::sport-category.sport-category'
     >;
-    universiade2019: Attribute.Boolean & Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -939,21 +940,24 @@ export interface ApiSportCategorySportCategory extends Schema.CollectionType {
     singularName: 'sport-category';
     pluralName: 'sport-categories';
     displayName: '\u041A\u0430\u0442\u0435\u0433\u043E\u0440\u0438\u0438 \u0412\u0438\u0434\u043E\u0432 \u0421\u043F\u043E\u0440\u0442\u0430';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    name: Attribute.String &
+    title: Attribute.String &
       Attribute.Required &
       Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
-    sport: Attribute.Relation<
+    sports: Attribute.Relation<
       'api::sport-category.sport-category',
       'oneToMany',
       'api::sport.sport'
     >;
+    color: Attribute.String &
+      Attribute.CustomField<'plugin::color-picker.color'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1014,6 +1018,11 @@ export interface ApiSportsmanSportsman extends Schema.CollectionType {
       ]
     >;
     images: Attribute.Media<'images', true>;
+    uni_sport: Attribute.Relation<
+      'api::sportsman.sportsman',
+      'manyToOne',
+      'api::uni-sport.uni-sport'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1025,6 +1034,93 @@ export interface ApiSportsmanSportsman extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::sportsman.sportsman',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiUniSportUniSport extends Schema.CollectionType {
+  collectionName: 'uni_sports';
+  info: {
+    singularName: 'uni-sport';
+    pluralName: 'uni-sports';
+    displayName: '(\u0423\u043D\u0438\u0432\u0435\u0440\u0441\u0438\u0430\u0434\u0430) \u0412\u0438\u0434\u044B \u0421\u043F\u043E\u0440\u0442\u0430';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    images: Attribute.Media<'images', true>;
+    description: Attribute.RichText;
+    sportsmens: Attribute.Relation<
+      'api::uni-sport.uni-sport',
+      'oneToMany',
+      'api::sportsman.sportsman'
+    >;
+    uni_category: Attribute.Relation<
+      'api::uni-sport.uni-sport',
+      'manyToOne',
+      'api::uni-sport-category.uni-sport-category'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::uni-sport.uni-sport',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::uni-sport.uni-sport',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiUniSportCategoryUniSportCategory
+  extends Schema.CollectionType {
+  collectionName: 'uni_sport_categories';
+  info: {
+    singularName: 'uni-sport-category';
+    pluralName: 'uni-sport-categories';
+    displayName: '(\u0423\u043D\u0438\u0432\u0435\u0440\u0441\u0438\u0430\u0434\u0430) \u041A\u0430\u0442\u0435\u0433\u043E\u0440\u0438\u0438 \u0412\u0438\u0434\u043E\u0432 \u0421\u043F\u043E\u0440\u0442\u0430';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    uni_sports: Attribute.Relation<
+      'api::uni-sport-category.uni-sport-category',
+      'oneToMany',
+      'api::uni-sport.uni-sport'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::uni-sport-category.uni-sport-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::uni-sport-category.uni-sport-category',
       'oneToOne',
       'admin::user'
     > &
@@ -1056,6 +1152,8 @@ declare module '@strapi/types' {
       'api::sport.sport': ApiSportSport;
       'api::sport-category.sport-category': ApiSportCategorySportCategory;
       'api::sportsman.sportsman': ApiSportsmanSportsman;
+      'api::uni-sport.uni-sport': ApiUniSportUniSport;
+      'api::uni-sport-category.uni-sport-category': ApiUniSportCategoryUniSportCategory;
     }
   }
 }

@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "uni_sport_categories",
+  "info": {
+    "singularName": "uni-sport-category",
+    "pluralName": "uni-sport-categories",
+    "displayName": "(Универсиада) Категории Видов Спорта"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 255
+    },
+    "uni_sports": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::uni-sport.uni-sport",
+      "mappedBy": "uni_category"
+    }
+  }
+}

@@ -4,23 +4,30 @@
   "info": {
     "singularName": "sport-category",
     "pluralName": "sport-categories",
-    "displayName": "Категории Видов Спорта"
+    "displayName": "Категории Видов Спорта",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "name": {
+    "title": {
       "type": "string",
       "maxLength": 255,
       "required": true
     },
-    "sport": {
+    "sports": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::sport.sport",
       "mappedBy": "category"
+    },
+    "color": {
+      "type": "customField",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+      "required": false,
+      "customField": "plugin::color-picker.color"
     }
   }
 }

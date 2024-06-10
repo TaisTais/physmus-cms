@@ -4,7 +4,8 @@
   "info": {
     "singularName": "facts-records",
     "pluralName": "facts-records-many",
-    "displayName": "Факты и рекорды (Универсиада)"
+    "displayName": "(Универсиада) Факты и рекорды",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
