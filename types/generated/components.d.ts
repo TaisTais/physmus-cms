@@ -8,12 +8,9 @@ export interface ContentText extends Schema.Component {
     description: '';
   };
   attributes: {
-    title: Attribute.String &
-      Attribute.SetMinMaxLength<{
-        maxLength: 255;
-      }>;
     text: Attribute.RichText & Attribute.Required;
     images: Attribute.Media<'images', true>;
+    title: Attribute.String;
   };
 }
 

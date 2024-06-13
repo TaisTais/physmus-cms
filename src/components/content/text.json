@@ -7,20 +7,20 @@
   },
   "options": {},
   "attributes": {
-    "title": {
-      "type": "string",
-      "maxLength": 255
-    },
     "text": {
       "type": "richtext",
       "required": true
     },
     "images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
+    },
+    "title": {
+      "type": "string"
     }
   }
 }

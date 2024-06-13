@@ -819,37 +819,6 @@ export interface ApiAboutUniversiadeAboutUniversiade extends Schema.SingleType {
   };
 }
 
-export interface ApiFactsRecordsFactsRecords extends Schema.SingleType {
-  collectionName: 'facts_records_many';
-  info: {
-    singularName: 'facts-records';
-    pluralName: 'facts-records-many';
-    displayName: '(\u0423\u043D\u0438\u0432\u0435\u0440\u0441\u0438\u0430\u0434\u0430) \u0424\u0430\u043A\u0442\u044B \u0438 \u0440\u0435\u043A\u043E\u0440\u0434\u044B';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    text: Attribute.RichText & Attribute.Required;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::facts-records.facts-records',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::facts-records.facts-records',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiMainPageMainPage extends Schema.SingleType {
   collectionName: 'main_pages';
   info: {
@@ -1041,6 +1010,37 @@ export interface ApiSportsmanSportsman extends Schema.CollectionType {
   };
 }
 
+export interface ApiUniFactRecordUniFactRecord extends Schema.SingleType {
+  collectionName: 'uni_facts_records';
+  info: {
+    singularName: 'uni-fact-record';
+    pluralName: 'uni-facts-records';
+    displayName: '(\u0423\u043D\u0438\u0432\u0435\u0440\u0441\u0438\u0430\u0434\u0430) \u0424\u0430\u043A\u0442\u044B \u0438 \u0420\u0435\u043A\u043E\u0440\u0434\u044B';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    record: Attribute.Component<'content.text', true>;
+    fact: Attribute.Component<'content.text', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::uni-fact-record.uni-fact-record',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::uni-fact-record.uni-fact-record',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiUniSportUniSport extends Schema.CollectionType {
   collectionName: 'uni_sports';
   info: {
@@ -1150,11 +1150,11 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::about-universiade.about-universiade': ApiAboutUniversiadeAboutUniversiade;
-      'api::facts-records.facts-records': ApiFactsRecordsFactsRecords;
       'api::main-page.main-page': ApiMainPageMainPage;
       'api::sport.sport': ApiSportSport;
       'api::sport-category.sport-category': ApiSportCategorySportCategory;
       'api::sportsman.sportsman': ApiSportsmanSportsman;
+      'api::uni-fact-record.uni-fact-record': ApiUniFactRecordUniFactRecord;
       'api::uni-sport.uni-sport': ApiUniSportUniSport;
       'api::uni-sport-category.uni-sport-category': ApiUniSportCategoryUniSportCategory;
     }

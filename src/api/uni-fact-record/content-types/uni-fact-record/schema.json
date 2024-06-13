@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "uni_facts_records",
+  "info": {
+    "singularName": "uni-fact-record",
+    "pluralName": "uni-facts-records",
+    "displayName": "(Универсиада) Факты и Рекорды"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "record": {
+      "type": "component",
+      "repeatable": true,
+      "component": "content.text"
+    },
+    "fact": {
+      "type": "component",
+      "repeatable": true,
+      "component": "content.text"
+    }
+  }
+}
