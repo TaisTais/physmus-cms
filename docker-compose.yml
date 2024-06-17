@@ -59,7 +59,7 @@ services:
     environment:
       - ADMINER_DEFAULT_SERVER=physmus-cmsDB
     networks:
-      - physmus
+      - physmus-net
     depends_on:
       - physmus-cmsDB
 
