@@ -28,17 +28,33 @@
     "description": {
       "type": "richtext"
     },
-    "sportsmens": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::sportsman.sportsman",
-      "mappedBy": "sport"
-    },
     "category": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::sport-category.sport-category",
       "inversedBy": "sports"
+    },
+    "sportsmens": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::sportsman.sportsman",
+      "mappedBy": "sports"
+    },
+    "history": {
+      "type": "richtext"
+    },
+    "timeline": {
+      "displayName": "HistoryTimeLine",
+      "type": "component",
+      "repeatable": true,
+      "component": "field.history-time-line"
+    },
+    "historyImages": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true
     }
   }
 }

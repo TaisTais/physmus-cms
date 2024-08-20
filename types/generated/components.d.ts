@@ -37,6 +37,22 @@ export interface FieldAchievements extends Schema.Component {
   };
 }
 
+export interface FieldHistoryTimeLine extends Schema.Component {
+  collectionName: 'components_field_history_time_lines';
+  info: {
+    displayName: 'HistoryTimeLine';
+    icon: 'filter';
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    description: Attribute.RichText & Attribute.Required;
+  };
+}
+
 export interface MainMainCategory extends Schema.Component {
   collectionName: 'components_main_main_categories';
   info: {
@@ -64,6 +80,7 @@ declare module '@strapi/types' {
     export interface Components {
       'content.text': ContentText;
       'field.achievements': FieldAchievements;
+      'field.history-time-line': FieldHistoryTimeLine;
       'main.main-category': MainMainCategory;
     }
   }

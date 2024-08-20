@@ -28,6 +28,12 @@
       "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
       "required": false,
       "customField": "plugin::color-picker.color"
+    },
+    "darkColor": {
+      "type": "customField",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+      "required": false,
+      "customField": "plugin::color-picker.color"
     }
   }
 }

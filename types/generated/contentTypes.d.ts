@@ -906,16 +906,19 @@ export interface ApiSportSport extends Schema.CollectionType {
       }>;
     images: Attribute.Media<'images', true>;
     description: Attribute.RichText;
-    sportsmens: Attribute.Relation<
-      'api::sport.sport',
-      'oneToMany',
-      'api::sportsman.sportsman'
-    >;
     category: Attribute.Relation<
       'api::sport.sport',
       'manyToOne',
       'api::sport-category.sport-category'
     >;
+    sportsmens: Attribute.Relation<
+      'api::sport.sport',
+      'manyToMany',
+      'api::sportsman.sportsman'
+    >;
+    history: Attribute.RichText;
+    timeline: Attribute.Component<'field.history-time-line', true>;
+    historyImages: Attribute.Media<'images', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -958,6 +961,8 @@ export interface ApiSportCategorySportCategory extends Schema.CollectionType {
     >;
     color: Attribute.String &
       Attribute.CustomField<'plugin::color-picker.color'>;
+    darkColor: Attribute.String &
+      Attribute.CustomField<'plugin::color-picker.color'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -997,20 +1002,12 @@ export interface ApiSportsmanSportsman extends Schema.CollectionType {
       Attribute.SetMinMaxLength<{
         maxLength: 400;
       }>;
-    additional_info: Attribute.RichText &
-      Attribute.SetMinMaxLength<{
-        maxLength: 500;
-      }>;
-    achievements: Attribute.Component<'field.achievements', true>;
-    sport: Attribute.Relation<
+    additional_info: Attribute.RichText;
+    sports: Attribute.Relation<
       'api::sportsman.sportsman',
-      'manyToOne',
+      'manyToMany',
       'api::sport.sport'
     >;
-    variety_sport: Attribute.String &
-      Attribute.SetMinMaxLength<{
-        maxLength: 255;
-      }>;
     universiade2019: Attribute.Enumeration<
       [
         '\u041F\u043E\u0431\u0435\u0434\u0438\u0442\u0435\u043B\u0438 \u0438 \u043F\u0440\u0438\u0437\u0435\u0440\u044B',
@@ -1023,6 +1020,10 @@ export interface ApiSportsmanSportsman extends Schema.CollectionType {
       'manyToOne',
       'api::uni-sport.uni-sport'
     >;
+    info: Attribute.RichText &
+      Attribute.SetMinMaxLength<{
+        maxLength: 300;
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

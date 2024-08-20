@@ -22,23 +22,13 @@
       "maxLength": 400
     },
     "additional_info": {
-      "type": "richtext",
-      "maxLength": 500
+      "type": "richtext"
     },
-    "achievements": {
-      "type": "component",
-      "repeatable": true,
-      "component": "field.achievements"
-    },
-    "sport": {
+    "sports": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "api::sport.sport",
       "inversedBy": "sportsmens"
-    },
-    "variety_sport": {
-      "type": "string",
-      "maxLength": 255
     },
     "universiade2019": {
       "type": "enumeration",
@@ -48,17 +38,23 @@
       ]
     },
     "images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
     },
     "uni_sport": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::uni-sport.uni-sport",
       "inversedBy": "sportsmens"
+    },
+    "info": {
+      "type": "richtext",
+      "required": false,
+      "maxLength": 300
     }
   }
 }
