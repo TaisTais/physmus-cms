@@ -39,6 +39,12 @@
       "relation": "manyToOne",
       "target": "api::uni-sport-category.uni-sport-category",
       "inversedBy": "sports"
+    },
+    "exhibits": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::exhibit.exhibit",
+      "mappedBy": "uni_sport"
     }
   }
 }

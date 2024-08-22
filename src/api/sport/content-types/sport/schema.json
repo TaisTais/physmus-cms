@@ -55,6 +55,12 @@
       ],
       "type": "media",
       "multiple": true
+    },
+    "exhibits": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::exhibit.exhibit",
+      "mappedBy": "sport"
     }
   }
 }
