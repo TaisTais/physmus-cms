@@ -800,7 +800,10 @@ export interface ApiAboutUniversiadeAboutUniversiade extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
-    text: Attribute.RichText & Attribute.Required;
+    description: Attribute.Text;
+    figures: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    title: Attribute.String;
+    universiadeInfo: Attribute.RichText;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1131,6 +1134,41 @@ export interface ApiUniSportCategoryUniSportCategory
   };
 }
 
+export interface ApiUniversiadaSimbolysmUniversiadaSimbolysm
+  extends Schema.SingleType {
+  collectionName: 'universiada_simbolysms';
+  info: {
+    singularName: 'universiada-simbolysm';
+    pluralName: 'universiada-simbolysms';
+    displayName: '(\u0423\u043D\u0438\u0432\u0435\u0440\u0441\u0438\u0430\u0434\u0430) \u0421\u0438\u043C\u0432\u043E\u043B\u0438\u043A\u0430';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    symbols: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    mascot: Attribute.Component<'content.text'>;
+    brandbook: Attribute.Component<'content.text'>;
+    title: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::universiada-simbolysm.universiada-simbolysm',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::universiada-simbolysm.universiada-simbolysm',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1157,6 +1195,7 @@ declare module '@strapi/types' {
       'api::uni-fact-record.uni-fact-record': ApiUniFactRecordUniFactRecord;
       'api::uni-sport.uni-sport': ApiUniSportUniSport;
       'api::uni-sport-category.uni-sport-category': ApiUniSportCategoryUniSportCategory;
+      'api::universiada-simbolysm.universiada-simbolysm': ApiUniversiadaSimbolysmUniversiadaSimbolysm;
     }
   }
 }

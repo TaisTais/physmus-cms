@@ -12,9 +12,25 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "text": {
-      "type": "richtext",
-      "required": true
+    "description": {
+      "type": "text"
+    },
+    "figures": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "universiadeInfo": {
+      "type": "richtext"
     }
   }
 }
