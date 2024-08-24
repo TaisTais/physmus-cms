@@ -23,18 +23,18 @@
         "audios"
       ]
     },
-    "mascot": {
-      "type": "component",
-      "repeatable": false,
-      "component": "content.text"
+    "title": {
+      "type": "string"
     },
     "brandbook": {
       "type": "component",
       "repeatable": false,
-      "component": "content.text"
+      "component": "content.object"
     },
-    "title": {
-      "type": "string"
+    "mascot": {
+      "type": "component",
+      "repeatable": false,
+      "component": "content.object"
     }
   }
 }

@@ -1,7 +1,7 @@
 {
   "collectionName": "components_content_texts",
   "info": {
-    "displayName": "Text",
+    "displayName": "Place",
     "icon": "medium",
     "description": ""
   },
@@ -9,17 +9,12 @@
   "attributes": {
     "text": {
       "type": "richtext",
-      "required": true
-    },
-    "images": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ]
+      "required": false
     },
     "title": {
+      "type": "string"
+    },
+    "address": {
       "type": "string"
     }
   }

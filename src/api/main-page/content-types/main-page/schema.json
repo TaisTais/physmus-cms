@@ -29,11 +29,6 @@
       "repeatable": true,
       "component": "main.main-category",
       "required": false
-    },
-    "about": {
-      "type": "component",
-      "repeatable": false,
-      "component": "content.text"
     }
   }
 }

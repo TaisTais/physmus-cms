@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_content_table_items",
+  "info": {
+    "displayName": "tableItem",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "complex": {
+      "type": "string"
+    },
+    "sport": {
+      "type": "string"
+    }
+  }
+}

@@ -840,7 +840,6 @@ export interface ApiMainPageMainPage extends Schema.SingleType {
       }>;
     icons: Attribute.Media<'images', true>;
     categories: Attribute.Component<'main.main-category', true>;
-    about: Attribute.Component<'content.text'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -852,6 +851,40 @@ export interface ApiMainPageMainPage extends Schema.SingleType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::main-page.main-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSiteAndHeritageUniversiadeSiteAndHeritageUniversiade
+  extends Schema.SingleType {
+  collectionName: 'sites_and_heritages_universiade';
+  info: {
+    singularName: 'site-and-heritage-universiade';
+    pluralName: 'sites-and-heritages-universiade';
+    displayName: '(\u0423\u043D\u0438\u0432\u0435\u0440\u0441\u0438\u0430\u0434\u0430) \u041E\u0431\u044A\u0435\u043A\u0442\u044B \u0438 \u041D\u0430\u0441\u043B\u0435\u0434\u0438\u0435';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    culture: Attribute.Component<'content.text', true>;
+    housing: Attribute.Component<'content.text', true>;
+    sportComplex: Attribute.Component<'content.table-item', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::site-and-heritage-universiade.site-and-heritage-universiade',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::site-and-heritage-universiade.site-and-heritage-universiade',
       'oneToOne',
       'admin::user'
     > &
@@ -1148,9 +1181,9 @@ export interface ApiUniversiadaSimbolysmUniversiadaSimbolysm
   };
   attributes: {
     symbols: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
-    mascot: Attribute.Component<'content.text'>;
-    brandbook: Attribute.Component<'content.text'>;
     title: Attribute.String;
+    brandbook: Attribute.Component<'content.object'>;
+    mascot: Attribute.Component<'content.object'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1189,6 +1222,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::about-universiade.about-universiade': ApiAboutUniversiadeAboutUniversiade;
       'api::main-page.main-page': ApiMainPageMainPage;
+      'api::site-and-heritage-universiade.site-and-heritage-universiade': ApiSiteAndHeritageUniversiadeSiteAndHeritageUniversiade;
       'api::sport.sport': ApiSportSport;
       'api::sport-category.sport-category': ApiSportCategorySportCategory;
       'api::sportsman.sportsman': ApiSportsmanSportsman;
