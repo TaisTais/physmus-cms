@@ -875,59 +875,6 @@ export interface ApiExhibitExhibit extends Schema.CollectionType {
   };
 }
 
-export interface ApiExhibitExhibit extends Schema.CollectionType {
-  collectionName: 'exhibits';
-  info: {
-    singularName: 'exhibit';
-    pluralName: 'exhibits';
-    displayName: '\u042D\u043A\u0441\u043F\u043E\u043D\u0430\u0442\u044B';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    title: Attribute.String &
-      Attribute.Required &
-      Attribute.SetMinMaxLength<{
-        maxLength: 255;
-      }>;
-    description: Attribute.Text &
-      Attribute.SetMinMaxLength<{
-        maxLength: 255;
-      }>;
-    text: Attribute.RichText;
-    images: Attribute.Media<'images', true> & Attribute.Required;
-    pdfs: Attribute.Media<'files', true>;
-    model3d: Attribute.Media<'files'>;
-    sport: Attribute.Relation<
-      'api::exhibit.exhibit',
-      'manyToOne',
-      'api::sport.sport'
-    >;
-    uni_sport: Attribute.Relation<
-      'api::exhibit.exhibit',
-      'manyToOne',
-      'api::uni-sport.uni-sport'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::exhibit.exhibit',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::exhibit.exhibit',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiMainPageMainPage extends Schema.SingleType {
   collectionName: 'main_pages';
   info: {
@@ -946,7 +893,6 @@ export interface ApiMainPageMainPage extends Schema.SingleType {
       }>;
     icons: Attribute.Media<'images', true>;
     categories: Attribute.Component<'main.main-category', true>;
-    about: Attribute.Component<'content.text'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
