@@ -1,0 +1,32 @@
+{
+  "kind": "singleType",
+  "collectionName": "sites_and_heritages_universiade",
+  "info": {
+    "singularName": "site-and-heritage-universiade",
+    "pluralName": "sites-and-heritages-universiade",
+    "displayName": "(Универсиада) Объекты и Наследие",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "culture": {
+      "type": "component",
+      "repeatable": true,
+      "component": "content.text"
+    },
+    "housing": {
+      "type": "component",
+      "repeatable": true,
+      "component": "content.text"
+    },
+    "sportComplex": {
+      "displayName": "tableItem",
+      "type": "component",
+      "repeatable": true,
+      "component": "content.table-item"
+    }
+  }
+}

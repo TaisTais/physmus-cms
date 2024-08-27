@@ -1,0 +1,40 @@
+{
+  "kind": "singleType",
+  "collectionName": "universiada_simbolysms",
+  "info": {
+    "singularName": "universiada-simbolysm",
+    "pluralName": "universiada-simbolysms",
+    "displayName": "(Универсиада) Символика",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "symbols": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "brandbook": {
+      "type": "component",
+      "repeatable": false,
+      "component": "content.object"
+    },
+    "mascot": {
+      "type": "component",
+      "repeatable": false,
+      "component": "content.object"
+    }
+  }
+}

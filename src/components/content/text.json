@@ -1,26 +1,21 @@
 {
   "collectionName": "components_content_texts",
   "info": {
-    "displayName": "Text",
+    "displayName": "Place",
     "icon": "medium",
     "description": ""
   },
   "options": {},
   "attributes": {
-    "title": {
-      "type": "string",
-      "maxLength": 255
-    },
     "text": {
       "type": "richtext",
-      "required": true
+      "required": false
     },
-    "images": {
-      "allowedTypes": [
-        "images"
-      ],
-      "type": "media",
-      "multiple": true
+    "title": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
     }
   }
 }
