@@ -1085,7 +1085,7 @@ export interface ApiSportsmanSportsman extends Schema.CollectionType {
     >;
     info: Attribute.RichText &
       Attribute.SetMinMaxLength<{
-        maxLength: 300;
+        maxLength: 500;
       }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;

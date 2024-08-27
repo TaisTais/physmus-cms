@@ -54,7 +54,7 @@
     "info": {
       "type": "richtext",
       "required": false,
-      "maxLength": 300
+      "maxLength": 500
     }
   }
 }
