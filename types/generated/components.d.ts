@@ -97,6 +97,21 @@ export interface MainMainCategory extends Schema.Component {
   };
 }
 
+export interface UniSymbolsItem extends Schema.Component {
+  collectionName: 'components_uni_symbols_items';
+  info: {
+    displayName: 'SymbolsItem';
+    icon: 'picture';
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    image: Attribute.Media<'images'> & Attribute.Required;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -106,6 +121,7 @@ declare module '@strapi/types' {
       'field.achievements': FieldAchievements;
       'field.history-time-line': FieldHistoryTimeLine;
       'main.main-category': MainMainCategory;
+      'uni.symbols-item': UniSymbolsItem;
     }
   }
 }

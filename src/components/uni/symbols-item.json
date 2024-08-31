@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_uni_symbols_items",
+  "info": {
+    "displayName": "SymbolsItem",
+    "icon": "picture"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": false,
+      "maxLength": 255
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}

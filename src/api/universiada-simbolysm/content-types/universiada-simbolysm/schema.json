@@ -12,17 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "symbols": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
     "title": {
       "type": "string"
     },
@@ -35,6 +24,12 @@
       "type": "component",
       "repeatable": false,
       "component": "content.object"
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "uni.symbols-item",
+      "required": true
     }
   }
 }

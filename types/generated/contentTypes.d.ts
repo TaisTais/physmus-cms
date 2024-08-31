@@ -1244,10 +1244,10 @@ export interface ApiUniversiadaSimbolysmUniversiadaSimbolysm
     draftAndPublish: true;
   };
   attributes: {
-    symbols: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
     title: Attribute.String;
     brandbook: Attribute.Component<'content.object'>;
     mascot: Attribute.Component<'content.object'>;
+    items: Attribute.Component<'uni.symbols-item', true> & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
