@@ -9,7 +9,7 @@ export interface ContentObject extends Schema.Component {
   attributes: {
     title: Attribute.String;
     text: Attribute.RichText;
-    images: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    images: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
   };
 }
 
@@ -112,6 +112,18 @@ export interface UniSymbolsItem extends Schema.Component {
   };
 }
 
+export interface UniTextBlock extends Schema.Component {
+  collectionName: 'components_uni_text_blocks';
+  info: {
+    displayName: 'TextBlock';
+  };
+  attributes: {
+    title: Attribute.String;
+    text: Attribute.Text;
+    image: Attribute.Media<'images'>;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -122,6 +134,7 @@ declare module '@strapi/types' {
       'field.history-time-line': FieldHistoryTimeLine;
       'main.main-category': MainMainCategory;
       'uni.symbols-item': UniSymbolsItem;
+      'uni.text-block': UniTextBlock;
     }
   }
 }

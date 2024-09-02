@@ -15,21 +15,22 @@
     "title": {
       "type": "string"
     },
-    "brandbook": {
-      "type": "component",
-      "repeatable": false,
-      "component": "content.object"
-    },
-    "mascot": {
-      "type": "component",
-      "repeatable": false,
-      "component": "content.object"
-    },
     "items": {
       "type": "component",
       "repeatable": true,
       "component": "uni.symbols-item",
       "required": true
+    },
+    "brandbook": {
+      "displayName": "TextBlock",
+      "type": "component",
+      "repeatable": false,
+      "component": "uni.text-block"
+    },
+    "mascot": {
+      "type": "component",
+      "repeatable": false,
+      "component": "uni.text-block"
     }
   }
 }

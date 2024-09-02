@@ -1245,9 +1245,9 @@ export interface ApiUniversiadaSimbolysmUniversiadaSimbolysm
   };
   attributes: {
     title: Attribute.String;
-    brandbook: Attribute.Component<'content.object'>;
-    mascot: Attribute.Component<'content.object'>;
     items: Attribute.Component<'uni.symbols-item', true> & Attribute.Required;
+    brandbook: Attribute.Component<'uni.text-block'>;
+    mascot: Attribute.Component<'uni.text-block'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
