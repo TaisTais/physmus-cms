@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_uni_sport_objects",
+  "info": {
+    "displayName": "sportObject"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "sportComplex": {
+      "type": "component",
+      "repeatable": true,
+      "component": "content.table-item"
+    }
+  }
+}

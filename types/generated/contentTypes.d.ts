@@ -924,9 +924,9 @@ export interface ApiSiteAndHeritageUniversiadeSiteAndHeritageUniversiade
     draftAndPublish: true;
   };
   attributes: {
-    culture: Attribute.Component<'content.text', true>;
-    housing: Attribute.Component<'content.text', true>;
-    sportComplex: Attribute.Component<'content.table-item', true>;
+    culture: Attribute.Component<'uni.object'>;
+    housing: Attribute.Component<'uni.object'>;
+    sport: Attribute.Component<'uni.sport-object'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

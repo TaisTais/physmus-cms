@@ -97,6 +97,30 @@ export interface MainMainCategory extends Schema.Component {
   };
 }
 
+export interface UniObject extends Schema.Component {
+  collectionName: 'components_uni_objects';
+  info: {
+    displayName: 'object';
+    icon: 'pinMap';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    objects: Attribute.Component<'content.text', true>;
+  };
+}
+
+export interface UniSportObject extends Schema.Component {
+  collectionName: 'components_uni_sport_objects';
+  info: {
+    displayName: 'sportObject';
+  };
+  attributes: {
+    title: Attribute.String;
+    sportComplex: Attribute.Component<'content.table-item', true>;
+  };
+}
+
 export interface UniSymbolsItem extends Schema.Component {
   collectionName: 'components_uni_symbols_items';
   info: {
@@ -133,6 +157,8 @@ declare module '@strapi/types' {
       'field.achievements': FieldAchievements;
       'field.history-time-line': FieldHistoryTimeLine;
       'main.main-category': MainMainCategory;
+      'uni.object': UniObject;
+      'uni.sport-object': UniSportObject;
       'uni.symbols-item': UniSymbolsItem;
       'uni.text-block': UniTextBlock;
     }
