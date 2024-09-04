@@ -1266,6 +1266,39 @@ export interface ApiUniversiadaSimbolysmUniversiadaSimbolysm
   };
 }
 
+export interface ApiUniversiadeGeographyOfParticipantUniversiadeGeographyOfParticipant
+  extends Schema.SingleType {
+  collectionName: 'universiade_geography_of_participants';
+  info: {
+    singularName: 'universiade-geography-of-participant';
+    pluralName: 'universiade-geography-of-participants';
+    displayName: '(\u0423\u043D\u0438\u0432\u0435\u0440\u0441\u0438\u0430\u0434\u0430) \u0413\u0435\u043E\u0433\u0440\u0430\u0444\u0438\u044F \u0443\u0447\u0430\u0441\u0442\u043D\u0438\u043A\u043E\u0432';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    info: Attribute.Component<'uni.text-with-table'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::universiade-geography-of-participant.universiade-geography-of-participant',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::universiade-geography-of-participant.universiade-geography-of-participant',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1295,6 +1328,7 @@ declare module '@strapi/types' {
       'api::uni-sport.uni-sport': ApiUniSportUniSport;
       'api::uni-sport-category.uni-sport-category': ApiUniSportCategoryUniSportCategory;
       'api::universiada-simbolysm.universiada-simbolysm': ApiUniversiadaSimbolysmUniversiadaSimbolysm;
+      'api::universiade-geography-of-participant.universiade-geography-of-participant': ApiUniversiadeGeographyOfParticipantUniversiadeGeographyOfParticipant;
     }
   }
 }

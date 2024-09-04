@@ -110,6 +110,17 @@ export interface UniObject extends Schema.Component {
   };
 }
 
+export interface UniSimpleList extends Schema.Component {
+  collectionName: 'components_uni_simple_lists';
+  info: {
+    displayName: 'simpleList';
+    icon: 'bulletList';
+  };
+  attributes: {
+    name: Attribute.String;
+  };
+}
+
 export interface UniSportObject extends Schema.Component {
   collectionName: 'components_uni_sport_objects';
   info: {
@@ -148,6 +159,19 @@ export interface UniTextBlock extends Schema.Component {
   };
 }
 
+export interface UniTextWithTable extends Schema.Component {
+  collectionName: 'components_uni_text_with_tables';
+  info: {
+    displayName: 'textWithTable';
+    description: '';
+  };
+  attributes: {
+    countries: Attribute.Component<'uni.simple-list', true>;
+    additionalText: Attribute.Text;
+    text: Attribute.RichText;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -158,9 +182,11 @@ declare module '@strapi/types' {
       'field.history-time-line': FieldHistoryTimeLine;
       'main.main-category': MainMainCategory;
       'uni.object': UniObject;
+      'uni.simple-list': UniSimpleList;
       'uni.sport-object': UniSportObject;
       'uni.symbols-item': UniSymbolsItem;
       'uni.text-block': UniTextBlock;
+      'uni.text-with-table': UniTextWithTable;
     }
   }
 }

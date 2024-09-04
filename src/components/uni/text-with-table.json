@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_uni_text_with_tables",
+  "info": {
+    "displayName": "textWithTable",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "countries": {
+      "type": "component",
+      "repeatable": true,
+      "component": "uni.simple-list"
+    },
+    "additionalText": {
+      "type": "text"
+    },
+    "text": {
+      "type": "richtext"
+    }
+  }
+}
