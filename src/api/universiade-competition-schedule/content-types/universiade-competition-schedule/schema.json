@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "universiade_competition_schedules",
+  "info": {
+    "singularName": "universiade-competition-schedule",
+    "pluralName": "universiade-competition-schedules",
+    "displayName": "(Универсиада) Расписание соревнований",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "competitions": {
+      "displayName": "event",
+      "type": "component",
+      "repeatable": true,
+      "component": "uni.event"
+    }
+  }
+}

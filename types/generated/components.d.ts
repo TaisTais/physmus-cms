@@ -97,6 +97,19 @@ export interface MainMainCategory extends Schema.Component {
   };
 }
 
+export interface UniEvent extends Schema.Component {
+  collectionName: 'components_uni_events';
+  info: {
+    displayName: 'event';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    date: Attribute.String;
+    address: Attribute.String;
+  };
+}
+
 export interface UniObject extends Schema.Component {
   collectionName: 'components_uni_objects';
   info: {
@@ -181,6 +194,7 @@ declare module '@strapi/types' {
       'field.achievements': FieldAchievements;
       'field.history-time-line': FieldHistoryTimeLine;
       'main.main-category': MainMainCategory;
+      'uni.event': UniEvent;
       'uni.object': UniObject;
       'uni.simple-list': UniSimpleList;
       'uni.sport-object': UniSportObject;

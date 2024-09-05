@@ -1266,6 +1266,39 @@ export interface ApiUniversiadaSimbolysmUniversiadaSimbolysm
   };
 }
 
+export interface ApiUniversiadeCompetitionScheduleUniversiadeCompetitionSchedule
+  extends Schema.SingleType {
+  collectionName: 'universiade_competition_schedules';
+  info: {
+    singularName: 'universiade-competition-schedule';
+    pluralName: 'universiade-competition-schedules';
+    displayName: '(\u0423\u043D\u0438\u0432\u0435\u0440\u0441\u0438\u0430\u0434\u0430) \u0420\u0430\u0441\u043F\u0438\u0441\u0430\u043D\u0438\u0435 \u0441\u043E\u0440\u0435\u0432\u043D\u043E\u0432\u0430\u043D\u0438\u0439';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    competitions: Attribute.Component<'uni.event', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::universiade-competition-schedule.universiade-competition-schedule',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::universiade-competition-schedule.universiade-competition-schedule',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiUniversiadeGeographyOfParticipantUniversiadeGeographyOfParticipant
   extends Schema.SingleType {
   collectionName: 'universiade_geography_of_participants';
@@ -1328,6 +1361,7 @@ declare module '@strapi/types' {
       'api::uni-sport.uni-sport': ApiUniSportUniSport;
       'api::uni-sport-category.uni-sport-category': ApiUniSportCategoryUniSportCategory;
       'api::universiada-simbolysm.universiada-simbolysm': ApiUniversiadaSimbolysmUniversiadaSimbolysm;
+      'api::universiade-competition-schedule.universiade-competition-schedule': ApiUniversiadeCompetitionScheduleUniversiadeCompetitionSchedule;
       'api::universiade-geography-of-participant.universiade-geography-of-participant': ApiUniversiadeGeographyOfParticipantUniversiadeGeographyOfParticipant;
     }
   }
