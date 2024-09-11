@@ -20,8 +20,8 @@ export interface ContentTableItem extends Schema.Component {
     description: '';
   };
   attributes: {
-    complex: Attribute.String;
-    sport: Attribute.String;
+    key: Attribute.String & Attribute.Required;
+    value: Attribute.String & Attribute.Required;
   };
 }
 

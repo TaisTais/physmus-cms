@@ -15,21 +15,18 @@
     "description": {
       "type": "text"
     },
-    "figures": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
     "title": {
       "type": "string"
     },
     "universiadeInfo": {
+      "type": "richtext"
+    },
+    "figures": {
+      "type": "component",
+      "repeatable": true,
+      "component": "content.table-item"
+    },
+    "chronology": {
       "type": "richtext"
     }
   }

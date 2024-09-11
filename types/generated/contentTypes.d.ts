@@ -801,9 +801,10 @@ export interface ApiAboutUniversiadeAboutUniversiade extends Schema.SingleType {
   };
   attributes: {
     description: Attribute.Text;
-    figures: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     title: Attribute.String;
     universiadeInfo: Attribute.RichText;
+    figures: Attribute.Component<'content.table-item', true>;
+    chronology: Attribute.RichText;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1111,13 +1112,15 @@ export interface ApiUniFactRecordUniFactRecord extends Schema.SingleType {
     singularName: 'uni-fact-record';
     pluralName: 'uni-facts-records';
     displayName: '(\u0423\u043D\u0438\u0432\u0435\u0440\u0441\u0438\u0430\u0434\u0430) \u0424\u0430\u043A\u0442\u044B \u0438 \u0420\u0435\u043A\u043E\u0440\u0434\u044B';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    record: Attribute.Component<'content.text', true>;
-    fact: Attribute.Component<'content.text', true>;
+    records: Attribute.Component<'uni.text-block', true>;
+    facts: Attribute.Component<'uni.text-block', true>;
+    title: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
