@@ -801,9 +801,10 @@ export interface ApiAboutUniversiadeAboutUniversiade extends Schema.SingleType {
   };
   attributes: {
     description: Attribute.Text;
-    figures: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     title: Attribute.String;
     universiadeInfo: Attribute.RichText;
+    figures: Attribute.Component<'content.table-item', true>;
+    chronology: Attribute.RichText;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -924,9 +925,9 @@ export interface ApiSiteAndHeritageUniversiadeSiteAndHeritageUniversiade
     draftAndPublish: true;
   };
   attributes: {
-    culture: Attribute.Component<'content.text', true>;
-    housing: Attribute.Component<'content.text', true>;
-    sportComplex: Attribute.Component<'content.table-item', true>;
+    culture: Attribute.Component<'uni.object'>;
+    housing: Attribute.Component<'uni.object'>;
+    sport: Attribute.Component<'uni.sport-object'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1111,13 +1112,15 @@ export interface ApiUniFactRecordUniFactRecord extends Schema.SingleType {
     singularName: 'uni-fact-record';
     pluralName: 'uni-facts-records';
     displayName: '(\u0423\u043D\u0438\u0432\u0435\u0440\u0441\u0438\u0430\u0434\u0430) \u0424\u0430\u043A\u0442\u044B \u0438 \u0420\u0435\u043A\u043E\u0440\u0434\u044B';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    record: Attribute.Component<'content.text', true>;
-    fact: Attribute.Component<'content.text', true>;
+    records: Attribute.Component<'uni.text-block', true>;
+    facts: Attribute.Component<'uni.text-block', true>;
+    title: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1245,9 +1248,9 @@ export interface ApiUniversiadaSimbolysmUniversiadaSimbolysm
   };
   attributes: {
     title: Attribute.String;
-    brandbook: Attribute.Component<'content.object'>;
-    mascot: Attribute.Component<'content.object'>;
     items: Attribute.Component<'uni.symbols-item', true> & Attribute.Required;
+    brandbook: Attribute.Component<'uni.text-block'>;
+    mascot: Attribute.Component<'uni.text-block'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1259,6 +1262,72 @@ export interface ApiUniversiadaSimbolysmUniversiadaSimbolysm
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::universiada-simbolysm.universiada-simbolysm',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiUniversiadeCompetitionScheduleUniversiadeCompetitionSchedule
+  extends Schema.SingleType {
+  collectionName: 'universiade_competition_schedules';
+  info: {
+    singularName: 'universiade-competition-schedule';
+    pluralName: 'universiade-competition-schedules';
+    displayName: '(\u0423\u043D\u0438\u0432\u0435\u0440\u0441\u0438\u0430\u0434\u0430) \u0420\u0430\u0441\u043F\u0438\u0441\u0430\u043D\u0438\u0435 \u0441\u043E\u0440\u0435\u0432\u043D\u043E\u0432\u0430\u043D\u0438\u0439';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    competitions: Attribute.Component<'uni.event', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::universiade-competition-schedule.universiade-competition-schedule',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::universiade-competition-schedule.universiade-competition-schedule',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiUniversiadeGeographyOfParticipantUniversiadeGeographyOfParticipant
+  extends Schema.SingleType {
+  collectionName: 'universiade_geography_of_participants';
+  info: {
+    singularName: 'universiade-geography-of-participant';
+    pluralName: 'universiade-geography-of-participants';
+    displayName: '(\u0423\u043D\u0438\u0432\u0435\u0440\u0441\u0438\u0430\u0434\u0430) \u0413\u0435\u043E\u0433\u0440\u0430\u0444\u0438\u044F \u0443\u0447\u0430\u0441\u0442\u043D\u0438\u043A\u043E\u0432';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    info: Attribute.Component<'uni.text-with-table'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::universiade-geography-of-participant.universiade-geography-of-participant',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::universiade-geography-of-participant.universiade-geography-of-participant',
       'oneToOne',
       'admin::user'
     > &
@@ -1295,6 +1364,8 @@ declare module '@strapi/types' {
       'api::uni-sport.uni-sport': ApiUniSportUniSport;
       'api::uni-sport-category.uni-sport-category': ApiUniSportCategoryUniSportCategory;
       'api::universiada-simbolysm.universiada-simbolysm': ApiUniversiadaSimbolysmUniversiadaSimbolysm;
+      'api::universiade-competition-schedule.universiade-competition-schedule': ApiUniversiadeCompetitionScheduleUniversiadeCompetitionSchedule;
+      'api::universiade-geography-of-participant.universiade-geography-of-participant': ApiUniversiadeGeographyOfParticipantUniversiadeGeographyOfParticipant;
     }
   }
 }

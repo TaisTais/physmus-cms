@@ -4,22 +4,26 @@
   "info": {
     "singularName": "uni-fact-record",
     "pluralName": "uni-facts-records",
-    "displayName": "(Универсиада) Факты и Рекорды"
+    "displayName": "(Универсиада) Факты и Рекорды",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "record": {
+    "records": {
       "type": "component",
       "repeatable": true,
-      "component": "content.text"
+      "component": "uni.text-block"
     },
-    "fact": {
+    "facts": {
       "type": "component",
       "repeatable": true,
-      "component": "content.text"
+      "component": "uni.text-block"
+    },
+    "title": {
+      "type": "string"
     }
   }
 }

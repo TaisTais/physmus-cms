@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "universiade_geography_of_participants",
+  "info": {
+    "singularName": "universiade-geography-of-participant",
+    "pluralName": "universiade-geography-of-participants",
+    "displayName": "(Универсиада) География участников",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "info": {
+      "displayName": "textWithTable",
+      "type": "component",
+      "repeatable": false,
+      "component": "uni.text-with-table"
+    }
+  }
+}

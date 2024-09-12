@@ -14,19 +14,19 @@
   "attributes": {
     "culture": {
       "type": "component",
-      "repeatable": true,
-      "component": "content.text"
+      "repeatable": false,
+      "component": "uni.object"
     },
     "housing": {
       "type": "component",
-      "repeatable": true,
-      "component": "content.text"
+      "repeatable": false,
+      "component": "uni.object"
     },
-    "sportComplex": {
-      "displayName": "tableItem",
+    "sport": {
+      "displayName": "sportObject",
       "type": "component",
-      "repeatable": true,
-      "component": "content.table-item"
+      "repeatable": false,
+      "component": "uni.sport-object"
     }
   }
 }

@@ -9,7 +9,7 @@ export interface ContentObject extends Schema.Component {
   attributes: {
     title: Attribute.String;
     text: Attribute.RichText;
-    images: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    images: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
   };
 }
 
@@ -20,8 +20,8 @@ export interface ContentTableItem extends Schema.Component {
     description: '';
   };
   attributes: {
-    complex: Attribute.String;
-    sport: Attribute.String;
+    key: Attribute.String & Attribute.Required;
+    value: Attribute.String & Attribute.Required;
   };
 }
 
@@ -97,6 +97,54 @@ export interface MainMainCategory extends Schema.Component {
   };
 }
 
+export interface UniEvent extends Schema.Component {
+  collectionName: 'components_uni_events';
+  info: {
+    displayName: 'event';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    date: Attribute.String;
+    address: Attribute.String;
+  };
+}
+
+export interface UniObject extends Schema.Component {
+  collectionName: 'components_uni_objects';
+  info: {
+    displayName: 'object';
+    icon: 'pinMap';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    objects: Attribute.Component<'content.text', true>;
+  };
+}
+
+export interface UniSimpleList extends Schema.Component {
+  collectionName: 'components_uni_simple_lists';
+  info: {
+    displayName: 'simpleList';
+    icon: 'bulletList';
+  };
+  attributes: {
+    name: Attribute.String;
+  };
+}
+
+export interface UniSportObject extends Schema.Component {
+  collectionName: 'components_uni_sport_objects';
+  info: {
+    displayName: 'sportObject';
+  };
+  attributes: {
+    title: Attribute.String;
+    sportComplex: Attribute.Component<'content.table-item', true>;
+  };
+}
+
 export interface UniSymbolsItem extends Schema.Component {
   collectionName: 'components_uni_symbols_items';
   info: {
@@ -112,6 +160,31 @@ export interface UniSymbolsItem extends Schema.Component {
   };
 }
 
+export interface UniTextBlock extends Schema.Component {
+  collectionName: 'components_uni_text_blocks';
+  info: {
+    displayName: 'TextBlock';
+  };
+  attributes: {
+    title: Attribute.String;
+    text: Attribute.Text;
+    image: Attribute.Media<'images'>;
+  };
+}
+
+export interface UniTextWithTable extends Schema.Component {
+  collectionName: 'components_uni_text_with_tables';
+  info: {
+    displayName: 'textWithTable';
+    description: '';
+  };
+  attributes: {
+    countries: Attribute.Component<'uni.simple-list', true>;
+    additionalText: Attribute.Text;
+    text: Attribute.RichText;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -121,7 +194,13 @@ declare module '@strapi/types' {
       'field.achievements': FieldAchievements;
       'field.history-time-line': FieldHistoryTimeLine;
       'main.main-category': MainMainCategory;
+      'uni.event': UniEvent;
+      'uni.object': UniObject;
+      'uni.simple-list': UniSimpleList;
+      'uni.sport-object': UniSportObject;
       'uni.symbols-item': UniSymbolsItem;
+      'uni.text-block': UniTextBlock;
+      'uni.text-with-table': UniTextWithTable;
     }
   }
 }

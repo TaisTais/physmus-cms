@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_uni_objects",
+  "info": {
+    "displayName": "object",
+    "icon": "pinMap",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "objects": {
+      "type": "component",
+      "repeatable": true,
+      "component": "content.text"
+    }
+  }
+}

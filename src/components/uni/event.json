@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_uni_events",
+  "info": {
+    "displayName": "event",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    }
+  }
+}
