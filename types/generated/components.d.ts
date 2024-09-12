@@ -1,5 +1,52 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface ContentFiles extends Schema.Component {
+  collectionName: 'components_content_files';
+  info: {
+    displayName: 'Files';
+    icon: 'book';
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    file: Attribute.Media<'files'> & Attribute.Required;
+  };
+}
+
+export interface ContentImages extends Schema.Component {
+  collectionName: 'components_content_images';
+  info: {
+    displayName: 'Images';
+    icon: 'landscape';
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    image: Attribute.Media<'images'> & Attribute.Required;
+  };
+}
+
+export interface ContentLinks extends Schema.Component {
+  collectionName: 'components_content_links';
+  info: {
+    displayName: 'Links';
+    icon: 'attachment';
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    link: Attribute.Text & Attribute.Required;
+  };
+}
+
 export interface ContentObject extends Schema.Component {
   collectionName: 'components_content_objects';
   info: {
@@ -188,6 +235,9 @@ export interface UniTextWithTable extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'content.files': ContentFiles;
+      'content.images': ContentImages;
+      'content.links': ContentLinks;
       'content.object': ContentObject;
       'content.table-item': ContentTableItem;
       'content.text': ContentText;

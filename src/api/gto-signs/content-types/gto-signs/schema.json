@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "gto_signss",
+  "info": {
+    "singularName": "gto-signs",
+    "pluralName": "gto-signss",
+    "displayName": "Знаки ГТО",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "content.images",
+      "required": true
+    },
+    "text": {
+      "type": "richtext"
+    }
+  }
+}

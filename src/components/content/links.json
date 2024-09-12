@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_content_links",
+  "info": {
+    "displayName": "Links",
+    "icon": "attachment"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 255
+    },
+    "link": {
+      "type": "text",
+      "required": true,
+      "regex": "^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%.,_\\+~#=]{1,256}(?:.[a-zA-Z0-9()]{1,6})\\b(?:[-a-zA-Z0-9()@:%_\\+.,~#?&\\/=]*)$"
+    }
+  }
+}

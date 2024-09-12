@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "gto_histories",
+  "info": {
+    "singularName": "gto-history",
+    "pluralName": "gto-histories",
+    "displayName": "История ГТО"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "text": {
+      "type": "richtext"
+    }
+  }
+}

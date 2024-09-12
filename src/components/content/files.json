@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_content_files",
+  "info": {
+    "displayName": "Files",
+    "icon": "book"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 255
+    },
+    "file": {
+      "allowedTypes": [
+        "files"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}

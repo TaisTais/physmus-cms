@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "gtos",
+  "info": {
+    "singularName": "gto",
+    "pluralName": "gtos",
+    "displayName": "ГТО",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "text": {
+      "type": "richtext"
+    },
+    "links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "content.links",
+      "required": true
+    }
+  }
+}

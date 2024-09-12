@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "gto_docss",
+  "info": {
+    "singularName": "gto-docs",
+    "pluralName": "gto-docss",
+    "displayName": "Документы ГТО"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "text": {
+      "type": "richtext",
+      "required": false
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "content.files",
+      "required": true
+    }
+  }
+}

@@ -876,6 +876,154 @@ export interface ApiExhibitExhibit extends Schema.CollectionType {
   };
 }
 
+export interface ApiGtoGto extends Schema.SingleType {
+  collectionName: 'gtos';
+  info: {
+    singularName: 'gto';
+    pluralName: 'gtos';
+    displayName: '\u0413\u0422\u041E';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    text: Attribute.RichText;
+    links: Attribute.Component<'content.links', true> & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::gto.gto', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::gto.gto', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiGtoDocsGtoDocs extends Schema.SingleType {
+  collectionName: 'gto_docss';
+  info: {
+    singularName: 'gto-docs';
+    pluralName: 'gto-docss';
+    displayName: '\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B \u0413\u0422\u041E';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    text: Attribute.RichText;
+    items: Attribute.Component<'content.files', true> & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::gto-docs.gto-docs',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::gto-docs.gto-docs',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiGtoHistoryGtoHistory extends Schema.SingleType {
+  collectionName: 'gto_histories';
+  info: {
+    singularName: 'gto-history';
+    pluralName: 'gto-histories';
+    displayName: '\u0418\u0441\u0442\u043E\u0440\u0438\u044F \u0413\u0422\u041E';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    text: Attribute.RichText;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::gto-history.gto-history',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::gto-history.gto-history',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiGtoNormsGtoNorms extends Schema.SingleType {
+  collectionName: 'gto_normss';
+  info: {
+    singularName: 'gto-norms';
+    pluralName: 'gto-normss';
+    displayName: '\u041D\u043E\u0440\u043C\u044B \u0413\u0422\u041E';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    text: Attribute.RichText;
+    items: Attribute.Component<'content.files', true> & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::gto-norms.gto-norms',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::gto-norms.gto-norms',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiGtoSignsGtoSigns extends Schema.SingleType {
+  collectionName: 'gto_signss';
+  info: {
+    singularName: 'gto-signs';
+    pluralName: 'gto-signss';
+    displayName: '\u0417\u043D\u0430\u043A\u0438 \u0413\u0422\u041E';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    items: Attribute.Component<'content.images', true> & Attribute.Required;
+    text: Attribute.RichText;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::gto-signs.gto-signs',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::gto-signs.gto-signs',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiMainPageMainPage extends Schema.SingleType {
   collectionName: 'main_pages';
   info: {
@@ -1355,6 +1503,11 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::about-universiade.about-universiade': ApiAboutUniversiadeAboutUniversiade;
       'api::exhibit.exhibit': ApiExhibitExhibit;
+      'api::gto.gto': ApiGtoGto;
+      'api::gto-docs.gto-docs': ApiGtoDocsGtoDocs;
+      'api::gto-history.gto-history': ApiGtoHistoryGtoHistory;
+      'api::gto-norms.gto-norms': ApiGtoNormsGtoNorms;
+      'api::gto-signs.gto-signs': ApiGtoSignsGtoSigns;
       'api::main-page.main-page': ApiMainPageMainPage;
       'api::site-and-heritage-universiade.site-and-heritage-universiade': ApiSiteAndHeritageUniversiadeSiteAndHeritageUniversiade;
       'api::sport.sport': ApiSportSport;
