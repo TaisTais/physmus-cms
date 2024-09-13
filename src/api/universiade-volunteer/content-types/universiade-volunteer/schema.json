@@ -1,0 +1,37 @@
+{
+  "kind": "singleType",
+  "collectionName": "universiade_volunteers",
+  "info": {
+    "singularName": "universiade-volunteer",
+    "pluralName": "universiade-volunteers",
+    "displayName": "(Универсиада) Волонтеры",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "amount": {
+      "type": "component",
+      "repeatable": false,
+      "component": "uni.extended-figure"
+    },
+    "description": {
+      "type": "text"
+    },
+    "text": {
+      "type": "richtext"
+    },
+    "documents": {
+      "allowedTypes": [
+        "files"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}
