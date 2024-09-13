@@ -1,0 +1,31 @@
+{
+  "kind": "singleType",
+  "collectionName": "universiade_fans",
+  "info": {
+    "singularName": "universiade-fan",
+    "pluralName": "universiade-fans",
+    "displayName": "(Универсиада) Болельщики",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "description": {
+      "type": "text"
+    },
+    "text": {
+      "type": "text"
+    },
+    "amount": {
+      "displayName": "ExtendedFigure",
+      "type": "component",
+      "repeatable": false,
+      "component": "uni.extended-figure"
+    },
+    "title": {
+      "type": "string"
+    }
+  }
+}

@@ -157,6 +157,19 @@ export interface UniEvent extends Schema.Component {
   };
 }
 
+export interface UniExtendedFigure extends Schema.Component {
+  collectionName: 'components_uni_extended_figures';
+  info: {
+    displayName: 'ExtendedFigure';
+    description: '';
+  };
+  attributes: {
+    number: Attribute.Integer;
+    upperLine: Attribute.String;
+    lowerLine: Attribute.String;
+  };
+}
+
 export interface UniFigure extends Schema.Component {
   collectionName: 'components_uni_figures';
   info: {
@@ -269,6 +282,7 @@ declare module '@strapi/types' {
       'field.history-time-line': FieldHistoryTimeLine;
       'main.main-category': MainMainCategory;
       'uni.event': UniEvent;
+      'uni.extended-figure': UniExtendedFigure;
       'uni.figure': UniFigure;
       'uni.object': UniObject;
       'uni.simple-list': UniSimpleList;

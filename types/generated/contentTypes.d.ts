@@ -1484,6 +1484,40 @@ export interface ApiUniversiadeCompetitionScheduleUniversiadeCompetitionSchedule
   };
 }
 
+export interface ApiUniversiadeFanUniversiadeFan extends Schema.SingleType {
+  collectionName: 'universiade_fans';
+  info: {
+    singularName: 'universiade-fan';
+    pluralName: 'universiade-fans';
+    displayName: '(\u0423\u043D\u0438\u0432\u0435\u0440\u0441\u0438\u0430\u0434\u0430) \u0411\u043E\u043B\u0435\u043B\u044C\u0449\u0438\u043A\u0438';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    description: Attribute.Text;
+    text: Attribute.Text;
+    amount: Attribute.Component<'uni.extended-figure'>;
+    title: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::universiade-fan.universiade-fan',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::universiade-fan.universiade-fan',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiUniversiadeGeographyOfParticipantUniversiadeGeographyOfParticipant
   extends Schema.SingleType {
   collectionName: 'universiade_geography_of_participants';
@@ -1553,6 +1587,7 @@ declare module '@strapi/types' {
       'api::universiada-simbolysm.universiada-simbolysm': ApiUniversiadaSimbolysmUniversiadaSimbolysm;
       'api::universiade.universiade': ApiUniversiadeUniversiade;
       'api::universiade-competition-schedule.universiade-competition-schedule': ApiUniversiadeCompetitionScheduleUniversiadeCompetitionSchedule;
+      'api::universiade-fan.universiade-fan': ApiUniversiadeFanUniversiadeFan;
       'api::universiade-geography-of-participant.universiade-geography-of-participant': ApiUniversiadeGeographyOfParticipantUniversiadeGeographyOfParticipant;
     }
   }
