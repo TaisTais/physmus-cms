@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_uni_members",
+  "info": {
+    "displayName": "Member"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "post": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "sfuPost": {
+      "type": "string"
+    }
+  }
+}

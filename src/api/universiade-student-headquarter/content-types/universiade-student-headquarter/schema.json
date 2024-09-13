@@ -1,0 +1,36 @@
+{
+  "kind": "singleType",
+  "collectionName": "universiade_student_headquarters",
+  "info": {
+    "singularName": "universiade-student-headquarter",
+    "pluralName": "universiade-student-headquarters",
+    "displayName": "(Универсиада) Студенческий штаб",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "text": {
+      "type": "richtext"
+    },
+    "headquarters": {
+      "displayName": "MembersInfo",
+      "type": "component",
+      "repeatable": false,
+      "component": "uni.members-info"
+    },
+    "documents": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "files"
+      ]
+    }
+  }
+}

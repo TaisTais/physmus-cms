@@ -182,6 +182,30 @@ export interface UniFigure extends Schema.Component {
   };
 }
 
+export interface UniMember extends Schema.Component {
+  collectionName: 'components_uni_members';
+  info: {
+    displayName: 'Member';
+  };
+  attributes: {
+    image: Attribute.Media<'images'>;
+    post: Attribute.String;
+    name: Attribute.String;
+    sfuPost: Attribute.String;
+  };
+}
+
+export interface UniMembersInfo extends Schema.Component {
+  collectionName: 'components_uni_members_infos';
+  info: {
+    displayName: 'MembersInfo';
+  };
+  attributes: {
+    members: Attribute.Component<'uni.member', true>;
+    title: Attribute.String;
+  };
+}
+
 export interface UniObject extends Schema.Component {
   collectionName: 'components_uni_objects';
   info: {
@@ -284,6 +308,8 @@ declare module '@strapi/types' {
       'uni.event': UniEvent;
       'uni.extended-figure': UniExtendedFigure;
       'uni.figure': UniFigure;
+      'uni.member': UniMember;
+      'uni.members-info': UniMembersInfo;
       'uni.object': UniObject;
       'uni.simple-list': UniSimpleList;
       'uni.sport-object': UniSportObject;
