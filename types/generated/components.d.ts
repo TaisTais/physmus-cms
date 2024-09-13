@@ -232,6 +232,18 @@ export interface UniTextWithTable extends Schema.Component {
   };
 }
 
+export interface UniTitle extends Schema.Component {
+  collectionName: 'components_uni_titles';
+  info: {
+    displayName: 'Title';
+  };
+  attributes: {
+    upperLine: Attribute.String;
+    mainLine: Attribute.String;
+    lowerLine: Attribute.String;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -251,6 +263,7 @@ declare module '@strapi/types' {
       'uni.symbols-item': UniSymbolsItem;
       'uni.text-block': UniTextBlock;
       'uni.text-with-table': UniTextWithTable;
+      'uni.title': UniTitle;
     }
   }
 }

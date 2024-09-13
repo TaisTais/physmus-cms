@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_uni_titles",
+  "info": {
+    "displayName": "Title"
+  },
+  "options": {},
+  "attributes": {
+    "upperLine": {
+      "type": "string"
+    },
+    "mainLine": {
+      "type": "string"
+    },
+    "lowerLine": {
+      "type": "string"
+    }
+  }
+}
