@@ -803,8 +803,8 @@ export interface ApiAboutUniversiadeAboutUniversiade extends Schema.SingleType {
     description: Attribute.Text;
     title: Attribute.String;
     universiadeInfo: Attribute.RichText;
-    figures: Attribute.Component<'content.table-item', true>;
     chronology: Attribute.RichText;
+    figures: Attribute.Component<'uni.figure', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
