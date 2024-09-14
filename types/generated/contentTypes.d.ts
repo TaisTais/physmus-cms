@@ -1551,6 +1551,42 @@ export interface ApiUniversiadeGeographyOfParticipantUniversiadeGeographyOfParti
   };
 }
 
+export interface ApiUniversiadeMedalUniversiadeMedal extends Schema.SingleType {
+  collectionName: 'universiade_medals';
+  info: {
+    singularName: 'universiade-medal';
+    pluralName: 'universiade-medals';
+    displayName: '(\u0423\u043D\u0438\u0432\u0435\u0440\u0441\u0438\u0430\u0434\u0430) M\u0435\u0434\u0430\u043B\u044C\u043D\u044B\u0439 \u0437\u0430\u0447\u0435\u0442';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    countries: Attribute.Component<'uni.extended-table-item', true>;
+    countriesWithSports: Attribute.Component<
+      'uni.table-item-with-sub-rows',
+      true
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::universiade-medal.universiade-medal',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::universiade-medal.universiade-medal',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiUniversiadeStudentHeadquarterUniversiadeStudentHeadquarter
   extends Schema.SingleType {
   collectionName: 'universiade_student_headquarters';
@@ -1660,6 +1696,7 @@ declare module '@strapi/types' {
       'api::universiade-competition-schedule.universiade-competition-schedule': ApiUniversiadeCompetitionScheduleUniversiadeCompetitionSchedule;
       'api::universiade-fan.universiade-fan': ApiUniversiadeFanUniversiadeFan;
       'api::universiade-geography-of-participant.universiade-geography-of-participant': ApiUniversiadeGeographyOfParticipantUniversiadeGeographyOfParticipant;
+      'api::universiade-medal.universiade-medal': ApiUniversiadeMedalUniversiadeMedal;
       'api::universiade-student-headquarter.universiade-student-headquarter': ApiUniversiadeStudentHeadquarterUniversiadeStudentHeadquarter;
       'api::universiade-volunteer.universiade-volunteer': ApiUniversiadeVolunteerUniversiadeVolunteer;
     }

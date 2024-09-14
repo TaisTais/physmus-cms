@@ -11,7 +11,7 @@
     "sportComplex": {
       "type": "component",
       "repeatable": true,
-      "component": "content.table-item"
+      "component": "uni.table-item"
     }
   }
 }

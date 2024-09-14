@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_uni_table_sub_rows",
+  "info": {
+    "displayName": "TableSubRows",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "country": {
+      "type": "string",
+      "required": true
+    },
+    "gold": {
+      "type": "integer",
+      "required": true
+    },
+    "silver": {
+      "type": "integer",
+      "required": true
+    },
+    "bronze": {
+      "type": "integer",
+      "required": true
+    }
+  }
+}

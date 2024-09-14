@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_uni_table_item_with_sub_rows",
+  "info": {
+    "displayName": "TableItemWithSubRows",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "sport": {
+      "type": "string",
+      "required": true
+    },
+    "countries": {
+      "displayName": "TableSubRows",
+      "type": "component",
+      "repeatable": true,
+      "component": "uni.table-sub-rows",
+      "required": true
+    }
+  }
+}
