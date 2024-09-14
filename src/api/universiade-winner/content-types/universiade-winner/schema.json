@@ -1,0 +1,41 @@
+{
+  "kind": "singleType",
+  "collectionName": "universiade_winners",
+  "info": {
+    "singularName": "universiade-winner",
+    "pluralName": "universiade-winners",
+    "displayName": "(Универсиада) Победители, призеры и участники СФУ",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "figures": {
+      "type": "component",
+      "repeatable": true,
+      "component": "uni.figure"
+    },
+    "text": {
+      "type": "richtext"
+    },
+    "winnersTable": {
+      "displayName": "WinnerTable",
+      "type": "component",
+      "repeatable": false,
+      "component": "uni.winner-table"
+    },
+    "participantsTable": {
+      "type": "component",
+      "repeatable": false,
+      "component": "uni.winner-table"
+    }
+  }
+}

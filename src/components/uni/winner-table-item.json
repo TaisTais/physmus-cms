@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_uni_winner_table_items",
+  "info": {
+    "displayName": "WinnerTableItem",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "sport": {
+      "type": "string"
+    },
+    "achievements": {
+      "type": "richtext"
+    }
+  }
+}

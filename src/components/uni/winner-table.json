@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_uni_winner_tables",
+  "info": {
+    "displayName": "WinnerTable",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "people": {
+      "type": "component",
+      "repeatable": true,
+      "component": "uni.winner-table-item"
+    }
+  }
+}

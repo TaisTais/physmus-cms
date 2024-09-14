@@ -1397,7 +1397,7 @@ export interface ApiUniversiadaSimbolysmUniversiadaSimbolysm
   attributes: {
     title: Attribute.String;
     items: Attribute.Component<'uni.symbols-item', true> & Attribute.Required;
-    brandbook: Attribute.Component<'uni.text-block'>;
+    brandbookDoc: Attribute.Media<'files'>;
     mascot: Attribute.Component<'uni.text-block'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1658,6 +1658,43 @@ export interface ApiUniversiadeVolunteerUniversiadeVolunteer
   };
 }
 
+export interface ApiUniversiadeWinnerUniversiadeWinner
+  extends Schema.SingleType {
+  collectionName: 'universiade_winners';
+  info: {
+    singularName: 'universiade-winner';
+    pluralName: 'universiade-winners';
+    displayName: '(\u0423\u043D\u0438\u0432\u0435\u0440\u0441\u0438\u0430\u0434\u0430) \u041F\u043E\u0431\u0435\u0434\u0438\u0442\u0435\u043B\u0438, \u043F\u0440\u0438\u0437\u0435\u0440\u044B \u0438 \u0443\u0447\u0430\u0441\u0442\u043D\u0438\u043A\u0438 \u0421\u0424\u0423';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.String;
+    figures: Attribute.Component<'uni.figure', true>;
+    text: Attribute.RichText;
+    winnersTable: Attribute.Component<'uni.winner-table'>;
+    participantsTable: Attribute.Component<'uni.winner-table'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::universiade-winner.universiade-winner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::universiade-winner.universiade-winner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1699,6 +1736,7 @@ declare module '@strapi/types' {
       'api::universiade-medal.universiade-medal': ApiUniversiadeMedalUniversiadeMedal;
       'api::universiade-student-headquarter.universiade-student-headquarter': ApiUniversiadeStudentHeadquarterUniversiadeStudentHeadquarter;
       'api::universiade-volunteer.universiade-volunteer': ApiUniversiadeVolunteerUniversiadeVolunteer;
+      'api::universiade-winner.universiade-winner': ApiUniversiadeWinnerUniversiadeWinner;
     }
   }
 }
