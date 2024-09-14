@@ -1675,8 +1675,6 @@ export interface ApiUniversiadeWinnerUniversiadeWinner
     description: Attribute.String;
     figures: Attribute.Component<'uni.figure', true>;
     text: Attribute.RichText;
-    winnersTable: Attribute.Component<'uni.winner-table'>;
-    participantsTable: Attribute.Component<'uni.winner-table'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

@@ -25,17 +25,6 @@
     },
     "text": {
       "type": "richtext"
-    },
-    "winnersTable": {
-      "displayName": "WinnerTable",
-      "type": "component",
-      "repeatable": false,
-      "component": "uni.winner-table"
-    },
-    "participantsTable": {
-      "type": "component",
-      "repeatable": false,
-      "component": "uni.winner-table"
     }
   }
 }

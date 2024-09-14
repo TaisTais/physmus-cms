@@ -334,32 +334,6 @@ export interface UniTitle extends Schema.Component {
   };
 }
 
-export interface UniWinnerTableItem extends Schema.Component {
-  collectionName: 'components_uni_winner_table_items';
-  info: {
-    displayName: 'WinnerTableItem';
-    description: '';
-  };
-  attributes: {
-    name: Attribute.String;
-    status: Attribute.String;
-    sport: Attribute.String;
-    achievements: Attribute.RichText;
-  };
-}
-
-export interface UniWinnerTable extends Schema.Component {
-  collectionName: 'components_uni_winner_tables';
-  info: {
-    displayName: 'WinnerTable';
-    description: '';
-  };
-  attributes: {
-    title: Attribute.String;
-    people: Attribute.Component<'uni.winner-table-item', true>;
-  };
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -387,8 +361,6 @@ declare module '@strapi/types' {
       'uni.text-block': UniTextBlock;
       'uni.text-with-table': UniTextWithTable;
       'uni.title': UniTitle;
-      'uni.winner-table-item': UniWinnerTableItem;
-      'uni.winner-table': UniWinnerTable;
     }
   }
 }
