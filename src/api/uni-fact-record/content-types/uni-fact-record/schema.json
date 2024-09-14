@@ -17,11 +17,6 @@
       "repeatable": true,
       "component": "uni.text-block"
     },
-    "facts": {
-      "type": "component",
-      "repeatable": true,
-      "component": "uni.text-block"
-    },
     "title": {
       "type": "string"
     }

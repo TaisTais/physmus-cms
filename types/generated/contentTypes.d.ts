@@ -1267,7 +1267,6 @@ export interface ApiUniFactRecordUniFactRecord extends Schema.SingleType {
   };
   attributes: {
     records: Attribute.Component<'uni.text-block', true>;
-    facts: Attribute.Component<'uni.text-block', true>;
     title: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
