@@ -1674,6 +1674,16 @@ export interface ApiUniversiadeWinnerUniversiadeWinner
     description: Attribute.String;
     figures: Attribute.Component<'uni.figure', true>;
     text: Attribute.RichText;
+    winners: Attribute.Relation<
+      'api::universiade-winner.universiade-winner',
+      'oneToMany',
+      'api::sportsman.sportsman'
+    >;
+    participants: Attribute.Relation<
+      'api::universiade-winner.universiade-winner',
+      'oneToMany',
+      'api::sportsman.sportsman'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

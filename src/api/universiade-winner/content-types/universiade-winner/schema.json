@@ -25,6 +25,16 @@
     },
     "text": {
       "type": "richtext"
+    },
+    "winners": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::sportsman.sportsman"
+    },
+    "participants": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::sportsman.sportsman"
     }
   }
 }
