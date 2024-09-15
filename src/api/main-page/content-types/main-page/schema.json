@@ -29,6 +29,22 @@
       "repeatable": true,
       "component": "main.main-category",
       "required": false
+    },
+    "mainImages": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 255
+    },
+    "text": {
+      "type": "richtext"
     }
   }
 }

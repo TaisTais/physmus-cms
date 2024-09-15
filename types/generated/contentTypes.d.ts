@@ -1042,6 +1042,13 @@ export interface ApiMainPageMainPage extends Schema.SingleType {
       }>;
     icons: Attribute.Media<'images', true>;
     categories: Attribute.Component<'main.main-category', true>;
+    mainImages: Attribute.Media<'images', true>;
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    text: Attribute.RichText;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
