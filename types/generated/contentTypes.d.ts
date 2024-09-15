@@ -803,8 +803,8 @@ export interface ApiAboutUniversiadeAboutUniversiade extends Schema.SingleType {
     description: Attribute.Text;
     title: Attribute.String;
     universiadeInfo: Attribute.RichText;
-    figures: Attribute.Component<'content.table-item', true>;
     chronology: Attribute.RichText;
+    figures: Attribute.Component<'uni.figure', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1274,7 +1274,6 @@ export interface ApiUniFactRecordUniFactRecord extends Schema.SingleType {
   };
   attributes: {
     records: Attribute.Component<'uni.text-block', true>;
-    facts: Attribute.Component<'uni.text-block', true>;
     title: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1404,7 +1403,7 @@ export interface ApiUniversiadaSimbolysmUniversiadaSimbolysm
   attributes: {
     title: Attribute.String;
     items: Attribute.Component<'uni.symbols-item', true> & Attribute.Required;
-    brandbook: Attribute.Component<'uni.text-block'>;
+    brandbookDoc: Attribute.Media<'files'>;
     mascot: Attribute.Component<'uni.text-block'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1417,6 +1416,40 @@ export interface ApiUniversiadaSimbolysmUniversiadaSimbolysm
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::universiada-simbolysm.universiada-simbolysm',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiUniversiadeUniversiade extends Schema.SingleType {
+  collectionName: 'universiades';
+  info: {
+    singularName: 'universiade';
+    pluralName: 'universiades';
+    displayName: '(\u0423\u043D\u0438\u0432\u0435\u0440\u0441\u0438\u0430\u0434\u0430) \u0413\u043B\u0430\u0432\u043D\u0430\u044F';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.Component<'uni.title'>;
+    description: Attribute.Text;
+    image: Attribute.Media<'images'>;
+    baner: Attribute.Media<'images'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::universiade.universiade',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::universiade.universiade',
       'oneToOne',
       'admin::user'
     > &
@@ -1457,6 +1490,40 @@ export interface ApiUniversiadeCompetitionScheduleUniversiadeCompetitionSchedule
   };
 }
 
+export interface ApiUniversiadeFanUniversiadeFan extends Schema.SingleType {
+  collectionName: 'universiade_fans';
+  info: {
+    singularName: 'universiade-fan';
+    pluralName: 'universiade-fans';
+    displayName: '(\u0423\u043D\u0438\u0432\u0435\u0440\u0441\u0438\u0430\u0434\u0430) \u0411\u043E\u043B\u0435\u043B\u044C\u0449\u0438\u043A\u0438';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    description: Attribute.Text;
+    text: Attribute.Text;
+    amount: Attribute.Component<'uni.extended-figure'>;
+    title: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::universiade-fan.universiade-fan',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::universiade-fan.universiade-fan',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiUniversiadeGeographyOfParticipantUniversiadeGeographyOfParticipant
   extends Schema.SingleType {
   collectionName: 'universiade_geography_of_participants';
@@ -1483,6 +1550,158 @@ export interface ApiUniversiadeGeographyOfParticipantUniversiadeGeographyOfParti
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::universiade-geography-of-participant.universiade-geography-of-participant',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiUniversiadeMedalUniversiadeMedal extends Schema.SingleType {
+  collectionName: 'universiade_medals';
+  info: {
+    singularName: 'universiade-medal';
+    pluralName: 'universiade-medals';
+    displayName: '(\u0423\u043D\u0438\u0432\u0435\u0440\u0441\u0438\u0430\u0434\u0430) M\u0435\u0434\u0430\u043B\u044C\u043D\u044B\u0439 \u0437\u0430\u0447\u0435\u0442';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    countries: Attribute.Component<'uni.extended-table-item', true>;
+    countriesWithSports: Attribute.Component<
+      'uni.table-item-with-sub-rows',
+      true
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::universiade-medal.universiade-medal',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::universiade-medal.universiade-medal',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiUniversiadeStudentHeadquarterUniversiadeStudentHeadquarter
+  extends Schema.SingleType {
+  collectionName: 'universiade_student_headquarters';
+  info: {
+    singularName: 'universiade-student-headquarter';
+    pluralName: 'universiade-student-headquarters';
+    displayName: '(\u0423\u043D\u0438\u0432\u0435\u0440\u0441\u0438\u0430\u0434\u0430) \u0421\u0442\u0443\u0434\u0435\u043D\u0447\u0435\u0441\u043A\u0438\u0439 \u0448\u0442\u0430\u0431';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    text: Attribute.RichText;
+    headquarters: Attribute.Component<'uni.members-info'>;
+    documents: Attribute.Media<'files', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::universiade-student-headquarter.universiade-student-headquarter',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::universiade-student-headquarter.universiade-student-headquarter',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiUniversiadeVolunteerUniversiadeVolunteer
+  extends Schema.SingleType {
+  collectionName: 'universiade_volunteers';
+  info: {
+    singularName: 'universiade-volunteer';
+    pluralName: 'universiade-volunteers';
+    displayName: '(\u0423\u043D\u0438\u0432\u0435\u0440\u0441\u0438\u0430\u0434\u0430) \u0412\u043E\u043B\u043E\u043D\u0442\u0435\u0440\u044B';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    amount: Attribute.Component<'uni.extended-figure'>;
+    description: Attribute.Text;
+    text: Attribute.RichText;
+    documents: Attribute.Media<'files', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::universiade-volunteer.universiade-volunteer',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::universiade-volunteer.universiade-volunteer',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiUniversiadeWinnerUniversiadeWinner
+  extends Schema.SingleType {
+  collectionName: 'universiade_winners';
+  info: {
+    singularName: 'universiade-winner';
+    pluralName: 'universiade-winners';
+    displayName: '(\u0423\u043D\u0438\u0432\u0435\u0440\u0441\u0438\u0430\u0434\u0430) \u041F\u043E\u0431\u0435\u0434\u0438\u0442\u0435\u043B\u0438, \u043F\u0440\u0438\u0437\u0435\u0440\u044B \u0438 \u0443\u0447\u0430\u0441\u0442\u043D\u0438\u043A\u0438 \u0421\u0424\u0423';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.String;
+    figures: Attribute.Component<'uni.figure', true>;
+    text: Attribute.RichText;
+    winners: Attribute.Relation<
+      'api::universiade-winner.universiade-winner',
+      'oneToMany',
+      'api::sportsman.sportsman'
+    >;
+    participants: Attribute.Relation<
+      'api::universiade-winner.universiade-winner',
+      'oneToMany',
+      'api::sportsman.sportsman'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::universiade-winner.universiade-winner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::universiade-winner.universiade-winner',
       'oneToOne',
       'admin::user'
     > &
@@ -1524,8 +1743,14 @@ declare module '@strapi/types' {
       'api::uni-sport.uni-sport': ApiUniSportUniSport;
       'api::uni-sport-category.uni-sport-category': ApiUniSportCategoryUniSportCategory;
       'api::universiada-simbolysm.universiada-simbolysm': ApiUniversiadaSimbolysmUniversiadaSimbolysm;
+      'api::universiade.universiade': ApiUniversiadeUniversiade;
       'api::universiade-competition-schedule.universiade-competition-schedule': ApiUniversiadeCompetitionScheduleUniversiadeCompetitionSchedule;
+      'api::universiade-fan.universiade-fan': ApiUniversiadeFanUniversiadeFan;
       'api::universiade-geography-of-participant.universiade-geography-of-participant': ApiUniversiadeGeographyOfParticipantUniversiadeGeographyOfParticipant;
+      'api::universiade-medal.universiade-medal': ApiUniversiadeMedalUniversiadeMedal;
+      'api::universiade-student-headquarter.universiade-student-headquarter': ApiUniversiadeStudentHeadquarterUniversiadeStudentHeadquarter;
+      'api::universiade-volunteer.universiade-volunteer': ApiUniversiadeVolunteerUniversiadeVolunteer;
+      'api::universiade-winner.universiade-winner': ApiUniversiadeWinnerUniversiadeWinner;
     }
   }
 }

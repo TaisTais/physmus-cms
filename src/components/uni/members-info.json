@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_uni_members_infos",
+  "info": {
+    "displayName": "MembersInfo"
+  },
+  "options": {},
+  "attributes": {
+    "members": {
+      "type": "component",
+      "repeatable": true,
+      "component": "uni.member"
+    },
+    "title": {
+      "type": "string"
+    }
+  }
+}

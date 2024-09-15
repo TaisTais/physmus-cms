@@ -21,13 +21,14 @@
     "universiadeInfo": {
       "type": "richtext"
     },
-    "figures": {
-      "type": "component",
-      "repeatable": true,
-      "component": "content.table-item"
-    },
     "chronology": {
       "type": "richtext"
+    },
+    "figures": {
+      "displayName": "figure",
+      "type": "component",
+      "repeatable": true,
+      "component": "uni.figure"
     }
   }
 }

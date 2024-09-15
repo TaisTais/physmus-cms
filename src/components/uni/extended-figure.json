@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_uni_extended_figures",
+  "info": {
+    "displayName": "ExtendedFigure",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "number": {
+      "type": "integer"
+    },
+    "upperLine": {
+      "type": "string"
+    },
+    "lowerLine": {
+      "type": "string"
+    }
+  }
+}

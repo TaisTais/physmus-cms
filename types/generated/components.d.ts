@@ -60,18 +60,6 @@ export interface ContentObject extends Schema.Component {
   };
 }
 
-export interface ContentTableItem extends Schema.Component {
-  collectionName: 'components_content_table_items';
-  info: {
-    displayName: 'tableItem';
-    description: '';
-  };
-  attributes: {
-    key: Attribute.String & Attribute.Required;
-    value: Attribute.String & Attribute.Required;
-  };
-}
-
 export interface ContentText extends Schema.Component {
   collectionName: 'components_content_texts';
   info: {
@@ -157,6 +145,69 @@ export interface UniEvent extends Schema.Component {
   };
 }
 
+export interface UniExtendedFigure extends Schema.Component {
+  collectionName: 'components_uni_extended_figures';
+  info: {
+    displayName: 'ExtendedFigure';
+    description: '';
+  };
+  attributes: {
+    number: Attribute.Integer;
+    upperLine: Attribute.String;
+    lowerLine: Attribute.String;
+  };
+}
+
+export interface UniExtendedTableItem extends Schema.Component {
+  collectionName: 'components_uni_extended_table_items';
+  info: {
+    displayName: 'ExtendedTableItem';
+    description: '';
+  };
+  attributes: {
+    country: Attribute.String & Attribute.Required;
+    gold: Attribute.Integer & Attribute.Required;
+    silver: Attribute.Integer & Attribute.Required;
+    bronze: Attribute.Integer & Attribute.Required;
+  };
+}
+
+export interface UniFigure extends Schema.Component {
+  collectionName: 'components_uni_figures';
+  info: {
+    displayName: 'figure';
+    description: '';
+  };
+  attributes: {
+    number: Attribute.Integer;
+    object: Attribute.String;
+  };
+}
+
+export interface UniMember extends Schema.Component {
+  collectionName: 'components_uni_members';
+  info: {
+    displayName: 'Member';
+  };
+  attributes: {
+    image: Attribute.Media<'images'>;
+    post: Attribute.String;
+    name: Attribute.String;
+    sfuPost: Attribute.String;
+  };
+}
+
+export interface UniMembersInfo extends Schema.Component {
+  collectionName: 'components_uni_members_infos';
+  info: {
+    displayName: 'MembersInfo';
+  };
+  attributes: {
+    members: Attribute.Component<'uni.member', true>;
+    title: Attribute.String;
+  };
+}
+
 export interface UniObject extends Schema.Component {
   collectionName: 'components_uni_objects';
   info: {
@@ -188,7 +239,7 @@ export interface UniSportObject extends Schema.Component {
   };
   attributes: {
     title: Attribute.String;
-    sportComplex: Attribute.Component<'content.table-item', true>;
+    sportComplex: Attribute.Component<'uni.table-item', true>;
   };
 }
 
@@ -204,6 +255,45 @@ export interface UniSymbolsItem extends Schema.Component {
         maxLength: 255;
       }>;
     image: Attribute.Media<'images'> & Attribute.Required;
+  };
+}
+
+export interface UniTableItemWithSubRows extends Schema.Component {
+  collectionName: 'components_uni_table_item_with_sub_rows';
+  info: {
+    displayName: 'TableItemWithSubRows';
+    description: '';
+  };
+  attributes: {
+    sport: Attribute.String & Attribute.Required;
+    countries: Attribute.Component<'uni.table-sub-rows', true> &
+      Attribute.Required;
+  };
+}
+
+export interface UniTableItem extends Schema.Component {
+  collectionName: 'components_content_table_items';
+  info: {
+    displayName: 'tableItem';
+    description: '';
+  };
+  attributes: {
+    key: Attribute.String & Attribute.Required;
+    value: Attribute.String & Attribute.Required;
+  };
+}
+
+export interface UniTableSubRows extends Schema.Component {
+  collectionName: 'components_uni_table_sub_rows';
+  info: {
+    displayName: 'TableSubRows';
+    description: '';
+  };
+  attributes: {
+    country: Attribute.String & Attribute.Required;
+    gold: Attribute.Integer & Attribute.Required;
+    silver: Attribute.Integer & Attribute.Required;
+    bronze: Attribute.Integer & Attribute.Required;
   };
 }
 
@@ -232,6 +322,18 @@ export interface UniTextWithTable extends Schema.Component {
   };
 }
 
+export interface UniTitle extends Schema.Component {
+  collectionName: 'components_uni_titles';
+  info: {
+    displayName: 'Title';
+  };
+  attributes: {
+    upperLine: Attribute.String;
+    mainLine: Attribute.String;
+    lowerLine: Attribute.String;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -239,18 +341,26 @@ declare module '@strapi/types' {
       'content.images': ContentImages;
       'content.links': ContentLinks;
       'content.object': ContentObject;
-      'content.table-item': ContentTableItem;
       'content.text': ContentText;
       'field.achievements': FieldAchievements;
       'field.history-time-line': FieldHistoryTimeLine;
       'main.main-category': MainMainCategory;
       'uni.event': UniEvent;
+      'uni.extended-figure': UniExtendedFigure;
+      'uni.extended-table-item': UniExtendedTableItem;
+      'uni.figure': UniFigure;
+      'uni.member': UniMember;
+      'uni.members-info': UniMembersInfo;
       'uni.object': UniObject;
       'uni.simple-list': UniSimpleList;
       'uni.sport-object': UniSportObject;
       'uni.symbols-item': UniSymbolsItem;
+      'uni.table-item-with-sub-rows': UniTableItemWithSubRows;
+      'uni.table-item': UniTableItem;
+      'uni.table-sub-rows': UniTableSubRows;
       'uni.text-block': UniTextBlock;
       'uni.text-with-table': UniTextWithTable;
+      'uni.title': UniTitle;
     }
   }
 }

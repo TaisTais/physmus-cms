@@ -1,0 +1,38 @@
+{
+  "kind": "singleType",
+  "collectionName": "universiades",
+  "info": {
+    "singularName": "universiade",
+    "pluralName": "universiades",
+    "displayName": "(Универсиада) Главная",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "component",
+      "repeatable": false,
+      "component": "uni.title"
+    },
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "baner": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

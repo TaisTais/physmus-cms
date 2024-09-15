@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "universiade_medals",
+  "info": {
+    "singularName": "universiade-medal",
+    "pluralName": "universiade-medals",
+    "displayName": "(Универсиада) Mедальный зачет",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "countries": {
+      "type": "component",
+      "repeatable": true,
+      "component": "uni.extended-table-item"
+    },
+    "countriesWithSports": {
+      "displayName": "TableItemWithSubRows",
+      "type": "component",
+      "repeatable": true,
+      "component": "uni.table-item-with-sub-rows"
+    }
+  }
+}
