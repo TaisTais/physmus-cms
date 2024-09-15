@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_uni_figures",
+  "info": {
+    "displayName": "figure",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "number": {
+      "type": "integer"
+    },
+    "object": {
+      "type": "string"
+    }
+  }
+}
