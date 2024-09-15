@@ -1400,8 +1400,8 @@ export interface ApiUniversiadaSimbolysmUniversiadaSimbolysm
   attributes: {
     title: Attribute.String;
     items: Attribute.Component<'uni.symbols-item', true> & Attribute.Required;
-    brandbookDoc: Attribute.Media<'files'>;
     mascot: Attribute.Component<'uni.text-block'>;
+    brandbook: Attribute.Component<'uni.brandbook'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

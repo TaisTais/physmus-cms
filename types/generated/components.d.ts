@@ -132,6 +132,21 @@ export interface MainMainCategory extends Schema.Component {
   };
 }
 
+export interface UniBrandbook extends Schema.Component {
+  collectionName: 'components_uni_brandbooks';
+  info: {
+    displayName: 'Brandbook';
+    icon: 'attachment';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    text: Attribute.RichText;
+    image: Attribute.Media<'images'>;
+    brandbookDoc: Attribute.Media<'files'>;
+  };
+}
+
 export interface UniEvent extends Schema.Component {
   collectionName: 'components_uni_events';
   info: {
@@ -345,6 +360,7 @@ declare module '@strapi/types' {
       'field.achievements': FieldAchievements;
       'field.history-time-line': FieldHistoryTimeLine;
       'main.main-category': MainMainCategory;
+      'uni.brandbook': UniBrandbook;
       'uni.event': UniEvent;
       'uni.extended-figure': UniExtendedFigure;
       'uni.extended-table-item': UniExtendedTableItem;

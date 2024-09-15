@@ -21,17 +21,15 @@
       "component": "uni.symbols-item",
       "required": true
     },
-    "brandbookDoc": {
-      "allowedTypes": [
-        "files"
-      ],
-      "type": "media",
-      "multiple": false
-    },
     "mascot": {
       "type": "component",
       "repeatable": false,
       "component": "uni.text-block"
+    },
+    "brandbook": {
+      "type": "component",
+      "repeatable": false,
+      "component": "uni.brandbook"
     }
   }
 }
