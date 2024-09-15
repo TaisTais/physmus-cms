@@ -53,8 +53,7 @@
     },
     "info": {
       "type": "richtext",
-      "required": false,
-      "maxLength": 500
+      "required": false
     }
   }
 }

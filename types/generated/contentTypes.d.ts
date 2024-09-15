@@ -1239,10 +1239,7 @@ export interface ApiSportsmanSportsman extends Schema.CollectionType {
       'manyToOne',
       'api::uni-sport.uni-sport'
     >;
-    info: Attribute.RichText &
-      Attribute.SetMinMaxLength<{
-        maxLength: 500;
-      }>;
+    info: Attribute.RichText;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
