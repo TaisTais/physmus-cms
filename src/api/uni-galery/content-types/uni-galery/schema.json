@@ -1,0 +1,31 @@
+{
+  "kind": "singleType",
+  "collectionName": "uni_galeries",
+  "info": {
+    "singularName": "uni-galery",
+    "pluralName": "uni-galeries",
+    "displayName": "(Универсиада) Галерея",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 255
+    },
+    "imageBlocks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "uni.galery-group"
+    },
+    "videoBlocks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "uni.galery-group-video"
+    }
+  }
+}

@@ -1290,6 +1290,43 @@ export interface ApiUniFactRecordUniFactRecord extends Schema.SingleType {
   };
 }
 
+export interface ApiUniGaleryUniGalery extends Schema.SingleType {
+  collectionName: 'uni_galeries';
+  info: {
+    singularName: 'uni-galery';
+    pluralName: 'uni-galeries';
+    displayName: '(\u0423\u043D\u0438\u0432\u0435\u0440\u0441\u0438\u0430\u0434\u0430) \u0413\u0430\u043B\u0435\u0440\u0435\u044F';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    imageBlocks: Attribute.Component<'uni.galery-group', true>;
+    videoBlocks: Attribute.Component<'uni.galery-group-video', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::uni-galery.uni-galery',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::uni-galery.uni-galery',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiUniSportUniSport extends Schema.CollectionType {
   collectionName: 'uni_sports';
   info: {
@@ -1737,6 +1774,7 @@ declare module '@strapi/types' {
       'api::sport-category.sport-category': ApiSportCategorySportCategory;
       'api::sportsman.sportsman': ApiSportsmanSportsman;
       'api::uni-fact-record.uni-fact-record': ApiUniFactRecordUniFactRecord;
+      'api::uni-galery.uni-galery': ApiUniGaleryUniGalery;
       'api::uni-sport.uni-sport': ApiUniSportUniSport;
       'api::uni-sport-category.uni-sport-category': ApiUniSportCategoryUniSportCategory;
       'api::universiada-simbolysm.universiada-simbolysm': ApiUniversiadaSimbolysmUniversiadaSimbolysm;

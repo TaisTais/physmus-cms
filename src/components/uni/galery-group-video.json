@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_uni_galery_group_videos",
+  "info": {
+    "displayName": "GaleryGroupVideo",
+    "icon": "monitor"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 255
+    },
+    "videos": {
+      "allowedTypes": [
+        "videos"
+      ],
+      "type": "media",
+      "multiple": true,
+      "required": true
+    }
+  }
+}

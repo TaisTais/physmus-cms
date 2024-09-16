@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_uni_galery_groups",
+  "info": {
+    "displayName": "GaleryGroup",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 255
+    },
+    "images": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true,
+      "required": true
+    }
+  }
+}

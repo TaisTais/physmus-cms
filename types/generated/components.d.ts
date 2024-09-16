@@ -199,6 +199,38 @@ export interface UniFigure extends Schema.Component {
   };
 }
 
+export interface UniGaleryGroupVideo extends Schema.Component {
+  collectionName: 'components_uni_galery_group_videos';
+  info: {
+    displayName: 'GaleryGroupVideo';
+    icon: 'monitor';
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    videos: Attribute.Media<'videos', true> & Attribute.Required;
+  };
+}
+
+export interface UniGaleryGroup extends Schema.Component {
+  collectionName: 'components_uni_galery_groups';
+  info: {
+    displayName: 'GaleryGroup';
+    icon: 'apps';
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    images: Attribute.Media<'images', true> & Attribute.Required;
+  };
+}
+
 export interface UniMember extends Schema.Component {
   collectionName: 'components_uni_members';
   info: {
@@ -365,6 +397,8 @@ declare module '@strapi/types' {
       'uni.extended-figure': UniExtendedFigure;
       'uni.extended-table-item': UniExtendedTableItem;
       'uni.figure': UniFigure;
+      'uni.galery-group-video': UniGaleryGroupVideo;
+      'uni.galery-group': UniGaleryGroup;
       'uni.member': UniMember;
       'uni.members-info': UniMembersInfo;
       'uni.object': UniObject;
